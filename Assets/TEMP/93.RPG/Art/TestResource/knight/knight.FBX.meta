@@ -1,0 +1,564 @@
+fileFormatVersion: 2
+guid: 756467ac0ec02084aafaff0502b9248d
+ModelImporter:
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bip001
+  - first:
+      1: 100002
+    second: Bip001 Footsteps
+  - first:
+      1: 100004
+    second: Bip001 Head
+  - first:
+      1: 100006
+    second: Bip001 HeadNub
+  - first:
+      1: 100008
+    second: Bip001 L Calf
+  - first:
+      1: 100010
+    second: Bip001 L Clavicle
+  - first:
+      1: 100012
+    second: Bip001 L Finger0
+  - first:
+      1: 100014
+    second: Bip001 L Finger01
+  - first:
+      1: 100016
+    second: Bip001 L Finger02
+  - first:
+      1: 100018
+    second: Bip001 L Finger0Nub
+  - first:
+      1: 100020
+    second: Bip001 L Finger1
+  - first:
+      1: 100022
+    second: Bip001 L Finger11
+  - first:
+      1: 100024
+    second: Bip001 L Finger12
+  - first:
+      1: 100026
+    second: Bip001 L Finger1Nub
+  - first:
+      1: 100028
+    second: Bip001 L Foot
+  - first:
+      1: 100030
+    second: Bip001 L Forearm
+  - first:
+      1: 100032
+    second: Bip001 L Hand
+  - first:
+      1: 100034
+    second: Bip001 L Thigh
+  - first:
+      1: 100036
+    second: Bip001 L Toe0
+  - first:
+      1: 100038
+    second: Bip001 L Toe0Nub
+  - first:
+      1: 100040
+    second: Bip001 L UpperArm
+  - first:
+      1: 100042
+    second: Bip001 Neck
+  - first:
+      1: 100044
+    second: Bip001 Pelvis
+  - first:
+      1: 100046
+    second: Bip001 R Calf
+  - first:
+      1: 100048
+    second: Bip001 R Clavicle
+  - first:
+      1: 100050
+    second: Bip001 R Finger0
+  - first:
+      1: 100052
+    second: Bip001 R Finger01
+  - first:
+      1: 100054
+    second: Bip001 R Finger02
+  - first:
+      1: 100056
+    second: Bip001 R Finger0Nub
+  - first:
+      1: 100058
+    second: Bip001 R Finger1
+  - first:
+      1: 100060
+    second: Bip001 R Finger11
+  - first:
+      1: 100062
+    second: Bip001 R Finger12
+  - first:
+      1: 100064
+    second: Bip001 R Finger1Nub
+  - first:
+      1: 100066
+    second: Bip001 R Foot
+  - first:
+      1: 100068
+    second: Bip001 R Forearm
+  - first:
+      1: 100070
+    second: Bip001 R Hand
+  - first:
+      1: 100072
+    second: Bip001 R Thigh
+  - first:
+      1: 100074
+    second: Bip001 R Toe0
+  - first:
+      1: 100076
+    second: Bip001 R Toe0Nub
+  - first:
+      1: 100078
+    second: Bip001 R UpperArm
+  - first:
+      1: 100080
+    second: Bip001 Spine
+  - first:
+      1: 100082
+    second: Bip001 Spine1
+  - first:
+      1: 100084
+    second: bone_f_skirt
+  - first:
+      1: 100086
+    second: bone_l_shoulder
+  - first:
+      1: 100088
+    second: Bone_R_hand
+  - first:
+      1: 100090
+    second: bone_r_shoulder
+  - first:
+      1: 100092
+    second: Bone_R_weapon
+  - first:
+      1: 100094
+    second: //RootNode
+  - first:
+      1: 100096
+    second: knight_foot
+  - first:
+      1: 100098
+    second: knight_hair
+  - first:
+      1: 100100
+    second: knight_hand
+  - first:
+      1: 100102
+    second: knight_head
+  - first:
+      1: 100104
+    second: knight_lower
+  - first:
+      1: 100106
+    second: knight_R_2hand
+  - first:
+      1: 100108
+    second: knight_upper
+  - first:
+      1: 100110
+    second: Particle View 01
+  - first:
+      4: 400000
+    second: Bip001
+  - first:
+      4: 400002
+    second: Bip001 Footsteps
+  - first:
+      4: 400004
+    second: Bip001 Head
+  - first:
+      4: 400006
+    second: Bip001 HeadNub
+  - first:
+      4: 400008
+    second: Bip001 L Calf
+  - first:
+      4: 400010
+    second: Bip001 L Clavicle
+  - first:
+      4: 400012
+    second: Bip001 L Finger0
+  - first:
+      4: 400014
+    second: Bip001 L Finger01
+  - first:
+      4: 400016
+    second: Bip001 L Finger02
+  - first:
+      4: 400018
+    second: Bip001 L Finger0Nub
+  - first:
+      4: 400020
+    second: Bip001 L Finger1
+  - first:
+      4: 400022
+    second: Bip001 L Finger11
+  - first:
+      4: 400024
+    second: Bip001 L Finger12
+  - first:
+      4: 400026
+    second: Bip001 L Finger1Nub
+  - first:
+      4: 400028
+    second: Bip001 L Foot
+  - first:
+      4: 400030
+    second: Bip001 L Forearm
+  - first:
+      4: 400032
+    second: Bip001 L Hand
+  - first:
+      4: 400034
+    second: Bip001 L Thigh
+  - first:
+      4: 400036
+    second: Bip001 L Toe0
+  - first:
+      4: 400038
+    second: Bip001 L Toe0Nub
+  - first:
+      4: 400040
+    second: Bip001 L UpperArm
+  - first:
+      4: 400042
+    second: Bip001 Neck
+  - first:
+      4: 400044
+    second: Bip001 Pelvis
+  - first:
+      4: 400046
+    second: Bip001 R Calf
+  - first:
+      4: 400048
+    second: Bip001 R Clavicle
+  - first:
+      4: 400050
+    second: Bip001 R Finger0
+  - first:
+      4: 400052
+    second: Bip001 R Finger01
+  - first:
+      4: 400054
+    second: Bip001 R Finger02
+  - first:
+      4: 400056
+    second: Bip001 R Finger0Nub
+  - first:
+      4: 400058
+    second: Bip001 R Finger1
+  - first:
+      4: 400060
+    second: Bip001 R Finger11
+  - first:
+      4: 400062
+    second: Bip001 R Finger12
+  - first:
+      4: 400064
+    second: Bip001 R Finger1Nub
+  - first:
+      4: 400066
+    second: Bip001 R Foot
+  - first:
+      4: 400068
+    second: Bip001 R Forearm
+  - first:
+      4: 400070
+    second: Bip001 R Hand
+  - first:
+      4: 400072
+    second: Bip001 R Thigh
+  - first:
+      4: 400074
+    second: Bip001 R Toe0
+  - first:
+      4: 400076
+    second: Bip001 R Toe0Nub
+  - first:
+      4: 400078
+    second: Bip001 R UpperArm
+  - first:
+      4: 400080
+    second: Bip001 Spine
+  - first:
+      4: 400082
+    second: Bip001 Spine1
+  - first:
+      4: 400084
+    second: bone_f_skirt
+  - first:
+      4: 400086
+    second: bone_l_shoulder
+  - first:
+      4: 400088
+    second: Bone_R_hand
+  - first:
+      4: 400090
+    second: bone_r_shoulder
+  - first:
+      4: 400092
+    second: Bone_R_weapon
+  - first:
+      4: 400094
+    second: //RootNode
+  - first:
+      4: 400096
+    second: knight_foot
+  - first:
+      4: 400098
+    second: knight_hair
+  - first:
+      4: 400100
+    second: knight_hand
+  - first:
+      4: 400102
+    second: knight_head
+  - first:
+      4: 400104
+    second: knight_lower
+  - first:
+      4: 400106
+    second: knight_R_2hand
+  - first:
+      4: 400108
+    second: knight_upper
+  - first:
+      4: 400110
+    second: Particle View 01
+  - first:
+      43: 4300000
+    second: knight_body
+  - first:
+      43: 4300002
+    second: W_2hand
+  - first:
+      43: 4300004
+    second: knight_head
+  - first:
+      43: 4300006
+    second: knight_lower
+  - first:
+      43: 4300008
+    second: knight_foot
+  - first:
+      43: 4300010
+    second: knight_upper
+  - first:
+      43: 4300012
+    second: knight_hand
+  - first:
+      43: 4300014
+    second: knight_hair
+  - first:
+      43: 4300016
+    second: knight_R_2hand
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: knight_foot
+  - first:
+      137: 13700002
+    second: knight_hair
+  - first:
+      137: 13700004
+    second: knight_hand
+  - first:
+      137: 13700006
+    second: knight_head
+  - first:
+      137: 13700008
+    second: knight_lower
+  - first:
+      137: 13700010
+    second: knight_R_2hand
+  - first:
+      137: 13700012
+    second: knight_upper
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_R_2hand
+    second: {fileID: 2100000, guid: a791126f3eed245e8890c24632cea61c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_foot
+    second: {fileID: 2100000, guid: 5f47bd207917c4f91bf54480654832f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_hair
+    second: {fileID: 2100000, guid: 2a96fa85ba29442a8b0591907990f545, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_hand
+    second: {fileID: 2100000, guid: 605e79ea53caf4f2387a86c1a4830f75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_head
+    second: {fileID: 2100000, guid: 601a2eeb709f6442785a787420bd3402, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_lower
+    second: {fileID: 2100000, guid: 5550d4776bc544d5fb910f92ee5f9370, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_upper
+    second: {fileID: 2100000, guid: a28f8a897ce524d99abf2f0c1890130c, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 3
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 1
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips:
+  - 0f97ac3ff0a353444bd5ac2461f8920d
+  - 655fdaf4343689e4cb6cbb7848d8db2b
+  - ba0d988633a775c40b5cd46f07b7e85a
+  - 06d26151f4515b244b22d9fd217eea38
+  - 96a2e5a9b58b8074d946a8049077639d
+  - 8311d3cf0ef444e43bdd09a766e3efd0
+  - febdcc9c562756c4ab670daa05baaf5f
+  - 235a7d525f093ca47a74c99187256e8b
+  - 92a455c2823ad0b4baca9d0546d46c96
+  - fc455e92bdc438c43941925927acfd87
+  - 51aa225a4b739de4ea82d5e7d5c00fe9
+  - db9bfc7c1d8c48645bca4a6f0ce3e48a
+  - 5e431dcd0f2f2d14596f498cc060d7af
+  - b619720ef3998814093c6e8d220b1565
+  - 4e450b0c5a91cb04d88e2d9f280186e9
+  - 20c582e4a760feb4cbf12ee7ac44d93e
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

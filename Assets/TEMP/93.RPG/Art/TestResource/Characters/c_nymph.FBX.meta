@@ -1,0 +1,500 @@
+fileFormatVersion: 2
+guid: f3ab1331524c572408d28f832a43b5df
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box01
+    100002: Box02
+    100004: //RootNode
+    100006: Cylinder01
+    100008: Cylinder02
+    100010: handconjure
+    100012: head
+    100014: head_g
+    100016: headconjure
+    100018: ignore_NGon01
+    100020: Impact
+    100022: lbicep_g
+    100024: lear
+    100026: lfoot_g
+    100028: lforearm
+    100030: lforearm_g
+    100032: lhand
+    100034: lhand_g
+    100036: lshin_g
+    100038: lthigh_g
+    100040: neck_g
+    100042: pelvis_g
+    100044: rbicep_g
+    100046: rear
+    100048: rfoot_g
+    100050: rforearm_g
+    100052: rhand
+    100054: rhand_g
+    100056: rootdummy
+    100058: rshin_g
+    100060: rthigh_g
+    100062: Sphere01
+    100064: Sphere02
+    100066: torso_g
+    400000: Box01
+    400002: Box02
+    400004: //RootNode
+    400006: Cylinder01
+    400008: Cylinder02
+    400010: handconjure
+    400012: head
+    400014: head_g
+    400016: headconjure
+    400018: ignore_NGon01
+    400020: Impact
+    400022: lbicep_g
+    400024: lear
+    400026: lfoot_g
+    400028: lforearm
+    400030: lforearm_g
+    400032: lhand
+    400034: lhand_g
+    400036: lshin_g
+    400038: lthigh_g
+    400040: neck_g
+    400042: pelvis_g
+    400044: rbicep_g
+    400046: rear
+    400048: rfoot_g
+    400050: rforearm_g
+    400052: rhand
+    400054: rhand_g
+    400056: rootdummy
+    400058: rshin_g
+    400060: rthigh_g
+    400062: Sphere01
+    400064: Sphere02
+    400066: torso_g
+    2300000: Box01
+    2300002: Box02
+    2300004: Cylinder01
+    2300006: Cylinder02
+    2300008: head_g
+    2300010: ignore_NGon01
+    2300012: lbicep_g
+    2300014: lear
+    2300016: lfoot_g
+    2300018: lforearm_g
+    2300020: lhand_g
+    2300022: lshin_g
+    2300024: lthigh_g
+    2300026: neck_g
+    2300028: pelvis_g
+    2300030: rbicep_g
+    2300032: rear
+    2300034: rfoot_g
+    2300036: rforearm_g
+    2300038: rhand_g
+    2300040: rootdummy
+    2300042: rshin_g
+    2300044: rthigh_g
+    2300046: Sphere01
+    2300048: Sphere02
+    2300050: torso_g
+    3300000: Box01
+    3300002: Box02
+    3300004: Cylinder01
+    3300006: Cylinder02
+    3300008: head_g
+    3300010: ignore_NGon01
+    3300012: lbicep_g
+    3300014: lear
+    3300016: lfoot_g
+    3300018: lforearm_g
+    3300020: lhand_g
+    3300022: lshin_g
+    3300024: lthigh_g
+    3300026: neck_g
+    3300028: pelvis_g
+    3300030: rbicep_g
+    3300032: rear
+    3300034: rfoot_g
+    3300036: rforearm_g
+    3300038: rhand_g
+    3300040: rootdummy
+    3300042: rshin_g
+    3300044: rthigh_g
+    3300046: Sphere01
+    3300048: Sphere02
+    3300050: torso_g
+    4300000: ignore_NGon01
+    4300002: rootdummy
+    4300004: pelvis_g
+    4300006: lthigh_g
+    4300008: lshin_g
+    4300010: lfoot_g
+    4300012: rthigh_g
+    4300014: rshin_g
+    4300016: rfoot_g
+    4300018: Box01
+    4300020: torso_g
+    4300022: lbicep_g
+    4300024: lforearm_g
+    4300026: lhand_g
+    4300028: Cylinder02
+    4300030: Box02
+    4300032: rbicep_g
+    4300034: rforearm_g
+    4300036: rhand_g
+    4300038: Sphere02
+    4300040: Sphere01
+    4300042: neck_g
+    4300044: head_g
+    4300046: lear
+    4300048: rear
+    4300050: Cylinder01
+    7400000: nwreadyl
+    7400002: nwreadyr
+    7400004: nwslashl
+    7400006: nwstab
+    7400008: nwcloseh
+    7400010: nwclosel
+    7400012: nwreach
+    7400014: nwslashr
+    7400016: taunt
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 940717c8af6fd154a9db6f9bdc74677d, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 3
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: nwreadyl
+      takeName: 
+      firstFrame: 10
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: nwreadyr
+      takeName: 
+      firstFrame: 50
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: nwslashl
+      takeName: 
+      firstFrame: 90
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: nwstab
+      takeName: 
+      firstFrame: 130
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: nwcloseh
+      takeName: 
+      firstFrame: 170
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: nwclosel
+      takeName: 
+      firstFrame: 210
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: nwreach
+      takeName: 
+      firstFrame: 250
+      lastFrame: 285
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: nwslashr
+      takeName: 
+      firstFrame: 295
+      lastFrame: 325
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: taunt
+      takeName: 
+      firstFrame: 335
+      lastFrame: 401
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 1
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 1
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
