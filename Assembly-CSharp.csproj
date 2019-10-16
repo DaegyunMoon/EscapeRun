@@ -64,10 +64,10 @@
   <ItemGroup>
     <Compile Include="Assets\Imported\Supercyan Character Pack Free Sample\Scripts\CameraLogic.cs" />
     <Compile Include="Assets\Imported\Supercyan Character Pack Free Sample\Scripts\Demo.cs" />
-    <Compile Include="Assets\Imported\Supercyan Character Pack Free Sample\Scripts\SimpleCharacterControl.cs" />
     <Compile Include="Assets\Imported\Supercyan Character Pack Zombie Sample\Scripts\ZombieCameraLogic.cs" />
     <Compile Include="Assets\Imported\Supercyan Character Pack Zombie Sample\Scripts\ZombieCharacterControl.cs" />
     <Compile Include="Assets\Imported\Supercyan Character Pack Zombie Sample\Scripts\ZombieFree.cs" />
+    <Compile Include="Assets\Scenes\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\TEMP\93.RPG\Scipts\DetectorControl.cs" />
     <Compile Include="Assets\TEMP\93.RPG\Scipts\EffectTime.cs" />
