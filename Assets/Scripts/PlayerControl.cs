@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 
 public class PlayerControl : MonoBehaviour {
-
-    private enum ControlMode { Tank, Direct }
     private enum PlayerState { Idle, Run, Sprint, Jump, Fall, Exhaustion, Dive, Death }
     [SerializeField] private float moveSpeed = 3;
     [SerializeField] private float turnSpeed = 200;
@@ -11,8 +9,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody rigidBody;
 
-    [SerializeField] private ControlMode controlMode = ControlMode.Tank;
-
+    PlayerState playerState;
     private float currentV = 0;
     private float currentH = 0;
 
@@ -21,30 +18,17 @@ public class PlayerControl : MonoBehaviour {
     private readonly float backwardRunScale = 0.75f;
     private readonly float backwardWalkScale = 0.5f;
 
+    private bool isGrounded;
     private bool wasGrounded;
-    private Vector3 currentDirection = Vector3.zero;
 
     private float jumpTimeStamp = 0;
     private float minJumpInterval = 0.25f;
-
-    private bool isGrounded;
     private List<Collider> collisions = new List<Collider>();
 
     void Update()
     {
         animator.SetBool("Grounded", isGrounded);
-        switch (controlMode)
-        {
-            case ControlMode.Direct:
-                DirectUpdate();
-                break;
-            case ControlMode.Tank:
-                TankUpdate();
-                break;
-            default:
-                Debug.LogError("Unsupported state");
-                break;
-        }
+        TankUpdate();
         wasGrounded = isGrounded;
     }
 
@@ -71,7 +55,8 @@ public class PlayerControl : MonoBehaviour {
         {
             if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
             {
-                validSurfaceNormal = true; break;
+                validSurfaceNormal = true;
+                break;
             }
         }
 
@@ -97,22 +82,25 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision)
     {
-        if(collisions.Contains(collision.collider))
+        if (collisions.Contains(collision.collider))
         {
             collisions.Remove(collision.collider);
         }
-        if (collisions.Count == 0) { isGrounded = false; }
+        if (collisions.Count == 0)
+        {
+            isGrounded = false;
+        }
     }
     private void TankUpdate()
     {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
-        bool walk = Input.GetKey(KeyCode.LeftShift);
+        bool sprint = Input.GetKey(KeyCode.LeftShift);
 
         if (v < 0)
         {
-            if (walk)
+            if (sprint)
             {
                 v *= backwardRunScale;
             }
@@ -121,7 +109,7 @@ public class PlayerControl : MonoBehaviour {
                 v *= backwardWalkScale;
             }
         }
-        else if(walk)
+        else if (sprint)
         {
             v *= runScale;
         }
@@ -133,41 +121,6 @@ public class PlayerControl : MonoBehaviour {
         transform.Rotate(0, currentH * turnSpeed * Time.deltaTime, 0);
 
         animator.SetFloat("MoveSpeed", currentV);
-
-        JumpingAndLanding();
-    }
-
-    private void DirectUpdate()
-    {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
-
-        Transform camera = Camera.main.transform;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            v *= runScale;
-            h *= runScale;
-        }
-
-        currentV = Mathf.Lerp(currentV, v, Time.deltaTime * interpolation);
-        currentH = Mathf.Lerp(currentH, h, Time.deltaTime * interpolation);
-
-        Vector3 direction = camera.forward * currentV + camera.right * currentH;
-
-        float directionLength = direction.magnitude;
-        direction.y = 0;
-        direction = direction.normalized * directionLength;
-
-        if(direction != Vector3.zero)
-        {
-            currentDirection = Vector3.Slerp(currentDirection, direction, Time.deltaTime * interpolation);
-
-            transform.rotation = Quaternion.LookRotation(currentDirection);
-            transform.position += currentDirection * moveSpeed * Time.deltaTime;
-
-            animator.SetFloat("MoveSpeed", direction.magnitude);
-        }
 
         JumpingAndLanding();
     }
@@ -191,5 +144,10 @@ public class PlayerControl : MonoBehaviour {
         {
             animator.SetTrigger("Jump");
         }
+    }
+
+    private void CheckState()
+    {
+
     }
 }

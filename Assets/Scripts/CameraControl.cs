@@ -15,9 +15,9 @@ public class CameraControl : MonoBehaviour
     public CameraViewPointState LastState;
     */
     [Header("3인칭 카메라")]
-    public float Distance = 3.0f; //타켓으로부터 떨어진 거리.
-    public float Height = 1.0f; //타겟의 위치보다 더 추가적인 높이.
-    public float HeightDamping = 1.0f;
+    public float Distance = 3.0f;
+    public float Height = 1.0f;
+    public float HeightDamping = 3.0f;
     public float RotateionDamping = 10.0f;
     /*
     [Header("2인칭 카메라")]
@@ -62,7 +62,7 @@ public class CameraControl : MonoBehaviour
         //현재 각도에서 원하는 각도로 댐핑값을 얻게 됨.
         currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, RotateionDamping * Time.deltaTime);
 
-        //현재 높이에서 원하는  높이로 댐핑값을 얻습니다.
+        //현재 높이에서 원하는 높이로 댐핑값을 얻습니다.
         currentHeight = Mathf.Lerp(currentHeight, wantedHeight, HeightDamping * Time.deltaTime);
 
         Quaternion currentRotation = Quaternion.Euler(0f, currentRotationAngle, 0f);
