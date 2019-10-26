@@ -4,11 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerAttack
-  - EnemyAttack
-  - Item
-  - Enemy
-  - Detector
+  - Water
   layers:
   - Default
   - TransparentFX
