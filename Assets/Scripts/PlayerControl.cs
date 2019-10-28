@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour {
     private bool isGrounded;
     private bool wasGrounded;
     private bool isJumping;
+    private bool isRecovering;
 
     private float jumpTimeStamp = 0;
     private float minJumpInterval = 0.25f;
@@ -213,15 +214,18 @@ public class PlayerControl : MonoBehaviour {
         {
             float fallAmount = maximumHeight - this.transform.position.y;
             Debug.Log("Fall Amount : " + fallAmount);
-            if(fallAmount > 0.7f)
+            if(fallAmount > 6.0f || hp < 0.0f)
             {
-                animator.SetTrigger("Land");
-            }
-            maximumHeight = this.transform.position.y;
-            if(hp < 0.0f)
-            {
+                hp = -100;
                 playerState = PlayerState.Exhaust;
+                if(!isRecovering)
+                {
+                    Invoke("Recover", 10.0f);
+                    isRecovering = true;
+                }
             }
+            animator.SetTrigger("Land");
+            maximumHeight = this.transform.position.y;
         }
         if (!isGrounded && wasGrounded)
         {
@@ -289,7 +293,11 @@ public class PlayerControl : MonoBehaviour {
         {
             hp = -100f;
             playerState = PlayerState.Exhaust;
-            Invoke("Recover", 10.0f);
+            if(!isRecovering)
+            {
+                Invoke("Recover", 10.0f);
+                isRecovering = true;
+            }
         }
     }
 
@@ -297,5 +305,6 @@ public class PlayerControl : MonoBehaviour {
     {
         hp = 0.1f;
         playerState = PlayerState.Idle;
+        isRecovering = false;
     }
 }
