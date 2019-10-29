@@ -214,9 +214,9 @@ public class PlayerControl : MonoBehaviour {
         if (!wasGrounded && isGrounded)
         {
             float fallAmount = maximumHeight - this.transform.position.y;
-            Debug.Log("Fall Amount : " + fallAmount);
             if(fallAmount > 6.0f || hp < 0.0f)
             {
+                Debug.Log("Fall Amount : " + fallAmount);
                 hp = -100;
                 playerState = PlayerState.Exhaust;
                 if(!isRecovering)
