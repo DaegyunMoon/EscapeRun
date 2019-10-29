@@ -282,6 +282,7 @@ public class PlayerControl : MonoBehaviour {
                 maximumHeight = this.transform.position.y;
                 break;
             case PlayerState.Death:
+                //gameOverPanel.setActive(true);
                 break;
         }
 

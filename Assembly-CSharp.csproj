@@ -180,9 +180,11 @@
     <Compile Include="Assets\ML-Agents\Scripts\Utilities.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\LearningAcademy.cs" />
+    <Compile Include="Assets\Scripts\OutOfArea.cs" />
     <Compile Include="Assets\Scripts\PlayerAgent.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\TargetSpawner.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\TEMP\93.RPG\Scipts\DetectorControl.cs" />
     <Compile Include="Assets\TEMP\93.RPG\Scipts\EffectTime.cs" />
     <Compile Include="Assets\TEMP\93.RPG\Scipts\ExplosionSkill.cs" />
@@ -234,7 +236,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\Timer.cs" />
     <None Include="Assets\ML-Agents\Plugins\Barracuda.Core\Barracuda\Resources\Experimental.compute" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
