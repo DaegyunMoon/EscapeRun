@@ -31,7 +31,8 @@ public class PlayerControl : MonoBehaviour {
     public float maximumHeight = 0f;
     private List<Collider> collisions = new List<Collider>();
 
-    public Text hptext;
+    //public Text hptext;
+    public Slider hpbar;
 
     void Update()
     {
@@ -284,7 +285,8 @@ public class PlayerControl : MonoBehaviour {
                 break;
         }
 
-        hptext.text = Mathf.Round(hp).ToString();
+        hpbar.value = (Mathf.Round(hp) > 0.0f) ? Mathf.Round(hp) : 0.0f;
+
         if(hp > 100.0f)
         {
             hp = 100.0f;
