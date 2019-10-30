@@ -44634,7 +44634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1654428048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44650,7 +44650,9 @@ MonoBehaviour:
   broadcastHub:
     broadcastingBrains:
     - {fileID: 11400000, guid: cb95ba2923c36f24884777536f9d495f, type: 2}
-    m_BrainsToControl: []
+    - {fileID: 11400000, guid: 92cba41757c3c66498f353476b96c6ed, type: 2}
+    m_BrainsToControl:
+    - {fileID: 11400000, guid: 92cba41757c3c66498f353476b96c6ed, type: 2}
   m_TrainingConfiguration:
     width: 80
     height: 80
@@ -57408,12 +57410,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824339482452514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6c3ff8d1722b8c4696b962978a3f143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: cb95ba2923c36f24884777536f9d495f, type: 2}
+  brain: {fileID: 11400000, guid: 92cba41757c3c66498f353476b96c6ed, type: 2}
   agentParameters:
     agentCameras: []
     agentRenderTextures: []
