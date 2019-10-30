@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
-    public GameObject SpawnItem = null;
-    public List<GameObject> ItemList = new List<GameObject>();
+    public GameObject gameObject = null;
+    public List<GameObject> targetList = new List<GameObject>();
 
     public int SpawnMaxCount = 5;
     private float thresholdTime = 0;
@@ -22,18 +22,19 @@ public class TargetSpawner : MonoBehaviour
 
     void Spawn()
     {
-        if (ItemList.Count >= SpawnMaxCount)
+        if (targetList.Count >= SpawnMaxCount)
         {
             return;
         }
 
         Vector3 spawnPos = new Vector3(Random.Range(-10.0f, 40.0f), 6.0f, Random.Range(-20.0f, 30.0f));
-        GameObject newItem = Instantiate(SpawnItem, spawnPos, Quaternion.identity);
-        ItemList.Add(newItem);
+        GameObject newItem = Instantiate(gameObject, spawnPos, Quaternion.identity);
+        targetList.Add(newItem);
     }
 
-    public void RemoveItem(GameObject gameObject)
+    public void RemoveTarget(GameObject gameObject)
     {
-        ItemList.Remove(gameObject);
+        targetList.Remove(gameObject);
+        Destroy(gameObject);
     }
 }

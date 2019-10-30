@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody rigidBody;
 
+    public PlayerAgent playerAgent;
     public PlayerState playerState;
     private float currentV = 0;
     private float currentH = 0;
@@ -29,15 +30,20 @@ public class PlayerControl : MonoBehaviour {
     private float jumpTimeStamp = 0;
     private float minJumpInterval = 0.25f;
     public float maximumHeight = 0f;
+    public Vector3 moveAmount = Vector3.zero;
     private List<Collider> collisions = new List<Collider>();
 
-    //public Text hptext;
+    //UI
     public Slider hpbar;
+    public GameObject gameOverPanel;
 
     void Update()
     {
         animator.SetBool("Grounded", isGrounded);
-        MoveUpdate();
+        if(playerState != PlayerState.Death)
+        {
+            MoveUpdate();
+        }
         CheckState();
         wasGrounded = isGrounded;
     }
@@ -185,13 +191,13 @@ public class PlayerControl : MonoBehaviour {
         currentH = Mathf.Lerp(currentH, h, Time.deltaTime * interpolation);
 
         transform.position += transform.forward * currentV * moveSpeed * Time.deltaTime;
+        moveAmount = transform.forward * currentV * moveSpeed;
         transform.Rotate(0, currentH * turnSpeed * Time.deltaTime, 0);
 
         animator.SetFloat("MoveSpeed", currentV);
 
         JumpingAndLanding();
     }
-
     private void JumpingAndLanding()
     {
         bool jumpCooldownOver = (Time.time - jumpTimeStamp) >= minJumpInterval;
@@ -216,7 +222,6 @@ public class PlayerControl : MonoBehaviour {
             float fallAmount = maximumHeight - this.transform.position.y;
             if(fallAmount > 6.0f || hp < 0.0f)
             {
-                Debug.Log("Fall Amount : " + fallAmount);
                 hp = -100;
                 playerState = PlayerState.Exhaust;
                 if(!isRecovering)
@@ -282,7 +287,10 @@ public class PlayerControl : MonoBehaviour {
                 maximumHeight = this.transform.position.y;
                 break;
             case PlayerState.Death:
-                //gameOverPanel.setActive(true);
+                //gameOverPanel.SetActive(true);
+                this.transform.position = new Vector3(42.5f, 6.0f, 32.5f);
+                this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
+                playerState = PlayerState.Fall;
                 break;
         }
 
@@ -302,12 +310,138 @@ public class PlayerControl : MonoBehaviour {
                 isRecovering = true;
             }
         }
-    }
 
+        if(this.transform.position.y < -15.0f)
+        {
+            playerState = PlayerState.Death;
+        }
+    }
     private void Recover()
     {
         hp = 0.1f;
         playerState = PlayerState.Idle;
         isRecovering = false;
+    }
+
+    // 강화학습 함수
+    public void Move(float v, float h, float s, float j)
+    {
+        bool sprint = s > 0 && playerState != PlayerState.Exhaust;
+        bool jump = j > 0;
+        bool CanChangeState()
+        {
+            switch (playerState)
+            {
+                case PlayerState.Jump:
+                case PlayerState.Dive:
+                case PlayerState.Exhaust:
+                    return false;
+                default:
+                    return true;
+            }
+        }
+
+        if (v < 0)
+        {
+            if (sprint)
+            {
+                v *= backwardRunScale;
+            }
+            else
+            {
+                v *= backwardWalkScale;
+            }
+        }
+        else if (sprint & Mathf.Abs(v) >= 0.1f)
+        {
+            v *= runScale;
+            hp -= 0.2f;
+        }
+        if (playerState == PlayerState.Dive || playerState == PlayerState.Exhaust)
+        {
+            v *= 0.5f;
+        }
+        if (isGrounded && CanChangeState())
+        {
+            if (Mathf.Abs(v) < 0.1)
+            {
+                playerState = PlayerState.Idle;
+            }
+            else
+            {
+                if (sprint)
+                {
+                    playerState = PlayerState.Sprint;
+                }
+                else
+                {
+                    playerState = PlayerState.Run;
+                }
+            }
+        }
+
+        currentV = Mathf.Lerp(currentV, v, Time.deltaTime * interpolation);
+        currentH = Mathf.Lerp(currentH, h, Time.deltaTime * interpolation);
+
+        transform.position += transform.forward * currentV * moveSpeed * Time.deltaTime;
+        moveAmount = transform.forward * currentV * moveSpeed;
+        transform.Rotate(0, currentH * turnSpeed * Time.deltaTime, 0);
+
+        animator.SetFloat("MoveSpeed", currentV);
+
+        Jump(jump);
+    }
+
+    private void Jump(bool jump)
+    {
+        bool jumpCooldownOver = (Time.time - jumpTimeStamp) >= minJumpInterval;
+        float heightBefore = 0.0f;
+
+        if (jumpCooldownOver && isGrounded && jump)
+        {
+            if (playerState == PlayerState.Exhaust)
+            {
+                jumpForce = 6f;
+            }
+            else
+            {
+                jumpForce = 12f;
+            }
+            heightBefore = this.transform.position.y;
+            jumpTimeStamp = Time.time;
+            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerState = PlayerState.Jump;
+            isJumping = true;
+        }
+        if (!wasGrounded && isGrounded)
+        {
+            float fallAmount = maximumHeight - this.transform.position.y;
+            playerAgent.CheckOnLanding(fallAmount, heightBefore);
+            if (fallAmount > 6.0f || hp < 0.0f)
+            {
+                hp = -100;
+                playerState = PlayerState.Exhaust;
+                if (!isRecovering)
+                {
+                    Invoke("Recover", 10.0f);
+                    isRecovering = true;
+                }
+            }
+            animator.SetTrigger("Land");
+            maximumHeight = this.transform.position.y;
+        }
+        if (!isGrounded && wasGrounded)
+        {
+            animator.SetTrigger("Jump");
+            if (isJumping)
+            {
+                playerState = PlayerState.Jump;
+            }
+            else
+            {
+                heightBefore = this.transform.position.y;
+                playerState = PlayerState.Fall;
+            }
+        }
     }
 }

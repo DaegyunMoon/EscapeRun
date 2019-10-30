@@ -6,8 +6,4 @@ using UnityEngine.SceneManagement;
 public class OutOfArea : MonoBehaviour
 {
     public PlayerControl playerControl;
-    void OnTriggerEnter(Collider col)
-    {
-        playerControl.playerState = PlayerState.Death;
-    }
 }
