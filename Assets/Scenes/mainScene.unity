@@ -41280,7 +41280,7 @@ GameObject:
   - component: {fileID: 1533989587}
   - component: {fileID: 1533989586}
   - component: {fileID: 1533989585}
-  - component: {fileID: 1533989588}
+  - component: {fileID: 1533989589}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -41336,7 +41336,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1533989588
+--- !u!114 &1533989589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41345,12 +41345,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1533989584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66050d3da1a5d1141994348b32c0fb94, type: 3}
+  m_Script: {fileID: 11500000, guid: fa1e0e4adc0ad404a98d1976a57f28f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1103964131845936, guid: 1e9452c2e358b30408e6165e6d56053d, type: 3}
-  targetList: []
-  SpawnMaxCount: 5
+  item:
+  - {fileID: 7233024093203569858, guid: 7fcd3278f7f2d5742930764d5f8e4ada, type: 3}
+  - {fileID: 149131504176364202, guid: 6707883ede3858046ac6758f2c79c928, type: 3}
+  - {fileID: 1991420744688600882, guid: b6eefb7b3568eef4db0efcb5fa0507e6, type: 3}
+  - {fileID: 1887010041526537138, guid: 3551950dbd38f1d4ab40c41c82049d63, type: 3}
+  - {fileID: 3133044449725151795, guid: e16eb6f35029aab47b357d77e2c314b4, type: 3}
+  - {fileID: 5710826262040953784, guid: 6fd0215ff269eee4bbd20ce51f8eae21, type: 3}
+  - {fileID: 2100604612527670485, guid: 6fb94a8d08d31014db8df82c2547ae97, type: 3}
+  - {fileID: 2034246662423880362, guid: 32b87dd09d57aa447afd46cc6b5710cc, type: 3}
+  - {fileID: 7258074207491335674, guid: ee809e62ba03e6149983b5b32476ac60, type: 3}
+  - {fileID: 8614482630567653098, guid: 542fc511e75e03d4fafbf5bf8b1d0c2e, type: 3}
+  itemList: []
+  SpawnMaxCount: 10
 --- !u!1 &1536517943
 GameObject:
   m_ObjectHideFlags: 0

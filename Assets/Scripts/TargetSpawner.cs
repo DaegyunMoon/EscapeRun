@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
-    public GameObject gameObject = null;
+    public GameObject targetObject = null;
     public List<GameObject> targetList = new List<GameObject>();
 
     public int SpawnMaxCount = 5;
@@ -28,7 +28,7 @@ public class TargetSpawner : MonoBehaviour
         }
 
         Vector3 spawnPos = new Vector3(Random.Range(-10.0f, 40.0f), 6.0f, Random.Range(-20.0f, 30.0f));
-        GameObject newItem = Instantiate(gameObject, spawnPos, Quaternion.identity);
+        GameObject newItem = Instantiate(targetObject, spawnPos, Quaternion.identity);
         targetList.Add(newItem);
     }
 

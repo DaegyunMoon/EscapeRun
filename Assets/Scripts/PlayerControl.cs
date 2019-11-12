@@ -330,9 +330,12 @@ public class PlayerControl : MonoBehaviour {
     }
     private void Recover()
     {
-        hp = 0.1f;
-        playerState = PlayerState.Idle;
-        isRecovering = false;
+        if(isRecovering)
+        {
+            hp = 0.1f;
+            playerState = PlayerState.Idle;
+            isRecovering = false;
+        }
     }
 
     // 강화학습 함수
@@ -474,5 +477,12 @@ public class PlayerControl : MonoBehaviour {
                 playerState = PlayerState.Fall;
             }
         }
+    }
+
+    public void FullHP()
+    {
+        hp = 100.0f;
+        playerState = PlayerState.Idle;
+        isRecovering = false;
     }
 }
