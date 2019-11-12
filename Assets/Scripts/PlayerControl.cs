@@ -27,9 +27,10 @@ public class PlayerControl : MonoBehaviour {
     private bool isJumping;
     private bool isRecovering;
 
-    private float jumpTimeStamp = 0;
+    private float jumpTimeStamp = 0.0f;
     private float minJumpInterval = 0.25f;
-    public float maximumHeight = 0f;
+    private float heightBefore = 0.0f;
+    private float maximumHeight = 0.0f;
     public Vector3 moveAmount = Vector3.zero;
     private List<Collider> collisions = new List<Collider>();
 
@@ -55,8 +56,9 @@ public class PlayerControl : MonoBehaviour {
         {
             if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
             {
-                if (!collisions.Contains(collision.collider)) {
-                    collisions.Add(collision.collider);
+                if (!collisions.Contains(collision.collider) && !collision.gameObject.CompareTag("Item"))
+                {
+                        collisions.Add(collision.collider);
                 }
                 isGrounded = true;
             }
@@ -104,6 +106,7 @@ public class PlayerControl : MonoBehaviour {
         }
         if (collisions.Count == 0)
         {
+
             isGrounded = false;
         }
     }
@@ -224,6 +227,7 @@ public class PlayerControl : MonoBehaviour {
             {
                 jumpForce = 12f;
             }
+            heightBefore = this.transform.position.y;
             jumpTimeStamp = Time.time;
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             playerState = PlayerState.Jump;
@@ -248,12 +252,13 @@ public class PlayerControl : MonoBehaviour {
         if (!isGrounded && wasGrounded)
         {
             animator.SetTrigger("Jump");
-            if(isJumping)
+            if (isJumping)
             {
                 playerState = PlayerState.Jump;
             }
             else
             {
+                heightBefore = this.transform.position.y;
                 playerState = PlayerState.Fall;
             }
         }
@@ -429,7 +434,6 @@ public class PlayerControl : MonoBehaviour {
     private void Jump(bool jump)
     {
         bool jumpCooldownOver = (Time.time - jumpTimeStamp) >= minJumpInterval;
-        float heightBefore = 0.0f;
 
         if (jumpCooldownOver && isGrounded && jump)
         {
@@ -488,4 +492,5 @@ public class PlayerControl : MonoBehaviour {
             isRecovering = false;
         }
     }
+
 }

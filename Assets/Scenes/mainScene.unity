@@ -5397,7 +5397,7 @@ RectTransform:
   - {fileID: 1286165458}
   - {fileID: 688634614}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6499,7 +6499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &249418478
 MonoBehaviour:
@@ -11942,6 +11942,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408664859}
   m_Mesh: {fileID: 4300024, guid: 72e643619fa32984785527a0c110a313, type: 3}
+--- !u!1 &409812830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409812831}
+  m_Layer: 0
+  m_Name: SKY
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &409812831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409812830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6203063994284433574}
+  - {fileID: 1355688340}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &410913840
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15912,7 +15944,7 @@ PrefabInstance:
     - target: {fileID: 4639924396061360299, guid: a6f21aefe3f1acb42b0dbc8878a1026b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4639924396061360299, guid: a6f21aefe3f1acb42b0dbc8878a1026b,
         type: 3}
@@ -17262,7 +17294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596227974
 GameObject:
@@ -37671,13 +37703,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355688339}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 192.5, y: -267.2, z: -71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1229175212}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 409812831}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &1362883295
 GameObject:
@@ -41334,7 +41366,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1533989589
 MonoBehaviour:
@@ -41360,7 +41392,7 @@ MonoBehaviour:
   - {fileID: 7258074207491335674, guid: ee809e62ba03e6149983b5b32476ac60, type: 3}
   - {fileID: 8614482630567653098, guid: 542fc511e75e03d4fafbf5bf8b1d0c2e, type: 3}
   itemList: []
-  SpawnMaxCount: 10
+  SpawnMaxCount: 20
 --- !u!1 &1536517943
 GameObject:
   m_ObjectHideFlags: 0
@@ -43538,7 +43570,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669095991
 GameObject:
@@ -49413,7 +49445,7 @@ Transform:
   - {fileID: 1544178504}
   - {fileID: 2119125042}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1899700233
 GameObject:
@@ -56601,7 +56633,6 @@ MonoBehaviour:
   rigidBody: {fileID: 54084939426712338}
   playerAgent: {fileID: 1824339482452515}
   playerState: 0
-  maximumHeight: 0
   moveAmount: {x: 0, y: 0, z: 0}
   hpbar: {fileID: 1286165459}
   gameOverPanel: {fileID: 633647155}
@@ -66033,7 +66064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6203063994284433574}
   m_Layer: 0
-  m_Name: SKY
+  m_Name: SKY Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66046,14 +66077,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5883258234874026343}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -218.1, y: 229.8, z: -71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6547998875210679967}
   - {fileID: 6547998876155235742}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 409812831}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6547998874152780457
 MeshRenderer:

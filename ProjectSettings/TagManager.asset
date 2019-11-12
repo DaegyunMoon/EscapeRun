@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Target
+  - Item
   layers:
   - Default
   - TransparentFX

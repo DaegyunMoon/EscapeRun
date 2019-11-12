@@ -89,6 +89,10 @@ public class PlayerAgent : Agent
             {
                 AddReward(-0.5f);
                 Debug.Log("타겟과 멀어짐");
+                if(s > 0.5f && playerControl.playerState != PlayerControl.PlayerState.Exhaust)
+                {
+                    AddReward(-0.5f);
+                }
             }
             beforeDistanceToTarget = (targetTransform.position - this.transform.position).magnitude;
         }
@@ -109,11 +113,11 @@ public class PlayerAgent : Agent
         float heightAfter = this.transform.position.y;
         float heightDiffBefore = Mathf.Abs(heightBefore - targetTransform.position.y);
         float heightDiffAfter = Mathf.Abs(heightAfter - targetTransform.position.y);
-        if (Math.Round(fallAmount, 2) == 1.77 && Math.Round(heightBefore, 2) == Math.Round(heightAfter, 2))
+        if (Math.Round(fallAmount, 2) == 1.77 && Math.Round(heightBefore, 1) == Math.Round(heightAfter, 1))
         {
             AddReward(-0.5f);
         }
-        if(heightDiffBefore > heightDiffAfter)
+        if (Math.Round(heightDiffBefore, 2) > Math.Round(heightDiffAfter, 2))
         {
             AddReward(0.5f);
         }

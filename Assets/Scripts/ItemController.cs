@@ -17,7 +17,10 @@ public class ItemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(this.transform.position.y < -15.0f)
+        {
+            itemSpawner.RemoveItem(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
