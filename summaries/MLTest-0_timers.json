@@ -1,0 +1,70 @@
+{
+  "name": "root",
+  "total": 20.4026809,
+  "count": 1,
+  "self": 10.570316299999996,
+  "children": [
+    {
+      "name": "TrainerController.advance",
+      "total": 9.832364600000004,
+      "count": 364,
+      "self": 0.5448654999999825,
+      "children": [
+        {
+          "name": "env_step",
+          "total": 9.287499100000021,
+          "count": 364,
+          "self": 9.277239000000026,
+          "children": [
+            {
+              "name": "SubprocessEnvManager._take_step",
+              "total": 0.0044851999999977465,
+              "count": 364,
+              "self": 0.0044851999999977465
+            },
+            {
+              "name": "workers",
+              "total": 0.005774899999996919,
+              "count": 363,
+              "self": 0.0,
+              "children": [
+                {
+                  "name": "worker_root",
+                  "total": 16.10602630000001,
+                  "count": 363,
+                  "is_parallel": true,
+                  "self": 7.237631700000019,
+                  "children": [
+                    {
+                      "name": "UnityEnvironment.step",
+                      "total": 8.868394599999991,
+                      "count": 363,
+                      "is_parallel": true,
+                      "self": 0.1483157999999989,
+                      "children": [
+                        {
+                          "name": "UnityEnvironment._generate_step_input",
+                          "total": 0.019513099999989514,
+                          "count": 363,
+                          "is_parallel": true,
+                          "self": 0.019513099999989514
+                        },
+                        {
+                          "name": "communicator.exchange",
+                          "total": 8.700565700000004,
+                          "count": 363,
+                          "is_parallel": true,
+                          "self": 8.700565700000004
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

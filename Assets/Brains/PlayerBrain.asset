@@ -43,4 +43,22 @@ MonoBehaviour:
     index: 3
     value: 0
   axisContinuousPlayerActions: []
-  discretePlayerActions: []
+  discretePlayerActions:
+  - key: 119
+    branchIndex: 0
+    value: 0
+  - key: 115
+    branchIndex: 0
+    value: 0
+  - key: 97
+    branchIndex: 0
+    value: 0
+  - key: 100
+    branchIndex: 0
+    value: 0
+  - key: 304
+    branchIndex: 0
+    value: 0
+  - key: 32
+    branchIndex: 0
+    value: 0

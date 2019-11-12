@@ -11,6 +11,10 @@ public class PlayerAgent : Agent
     public Transform terrainTransform;
     public Transform targetTransform;
     private TargetSpawner targetSpawner;
+
+    private int thresholdTime;
+    private float beforeDistanceToTarget;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +41,6 @@ public class PlayerAgent : Agent
                 targetTransform = target.transform;
             }
         }
-
         AddVectorObs(Mathf.Clamp(closestDistance.x / 5.0f, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(closestDistance.z / 5.0f, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(closestDistance.y / 5.0f, -1.0f, 1.0f));
@@ -72,13 +75,32 @@ public class PlayerAgent : Agent
             AddReward(-1.0f);
             Done();
         }
-    }
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Target"))
+
+        if((int)Timer.time >= thresholdTime)
         {
+            float nowDistanceToTarget = (targetTransform.position - this.transform.position).magnitude;
+            thresholdTime += 2;
+            if(beforeDistanceToTarget > nowDistanceToTarget)
+            {
+                AddReward(0.5f);
+                Debug.Log("타겟과 가까워짐");
+            }
+            else
+            {
+                AddReward(-0.5f);
+                Debug.Log("타겟과 멀어짐");
+            }
+            beforeDistanceToTarget = (targetTransform.position - this.transform.position).magnitude;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Target"))
+        {
+            Debug.Log("Finish");
             AddReward(1.0f);
-            targetSpawner.RemoveTarget(other.gameObject);
+            targetSpawner.RemoveTarget(collision.gameObject) ;
         }
     }
 

@@ -113,6 +113,10 @@ public class PlayerControl : MonoBehaviour {
         if(other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
         {
             playerState = PlayerState.Dive;
+            if(playerAgent)
+            {
+                playerAgent.AddReward(-0.1f);
+            }
         }
     }
     private void OnTriggerStay(Collider other)
@@ -120,6 +124,10 @@ public class PlayerControl : MonoBehaviour {
         if (other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
         {
             playerState = PlayerState.Dive;
+            if (playerAgent)
+            {
+                playerAgent.AddReward(-0.1f);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -127,6 +135,10 @@ public class PlayerControl : MonoBehaviour {
         if (other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
         {
             playerState = PlayerState.Fall;
+            if (playerAgent)
+            {
+                playerAgent.AddReward(0.1f);
+            }
         }
     }
     private void MoveUpdate()
@@ -326,8 +338,22 @@ public class PlayerControl : MonoBehaviour {
     // 강화학습 함수
     public void Move(float v, float h, float s, float j)
     {
-        bool sprint = s > 0 && playerState != PlayerState.Exhaust;
-        bool jump = j > 0;
+        float GetDiscreteValue(float n)
+        {
+            if(n > 0.1f)
+            {
+                n = 1.0f;
+            }
+            else if(n < -0.1f)
+            {
+                n = -1.0f;
+            }
+            else
+            {
+                n = 0.0f;
+            }
+            return n;
+        }
         bool CanChangeState()
         {
             switch (playerState)
@@ -340,6 +366,11 @@ public class PlayerControl : MonoBehaviour {
                     return true;
             }
         }
+        bool sprint = s > 0.5f && playerState != PlayerState.Exhaust;
+        bool jump = j > 0.5f;
+
+        v = GetDiscreteValue(v);
+        h = GetDiscreteValue(h);
 
         if (v < 0)
         {
