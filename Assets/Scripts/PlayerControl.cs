@@ -482,7 +482,10 @@ public class PlayerControl : MonoBehaviour {
     public void FullHP()
     {
         hp = 100.0f;
-        playerState = PlayerState.Idle;
-        isRecovering = false;
+        if(playerState == PlayerState.Exhaust)
+        {
+            playerState = PlayerState.Idle;
+            isRecovering = false;
+        }
     }
 }
