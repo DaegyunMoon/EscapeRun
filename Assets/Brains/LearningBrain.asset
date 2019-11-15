@@ -23,5 +23,5 @@ MonoBehaviour:
     - Sprint
     - Jump
     vectorActionSpaceType: 1
-  model: {fileID: 5022602860645237092, guid: cd353d3562f79dc448710426c82bda67, type: 3}
+  model: {fileID: 0}
   inferenceDevice: 0

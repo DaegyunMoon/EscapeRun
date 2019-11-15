@@ -30,7 +30,8 @@ public class PlayerAgent : Agent
     {
         float temp = 500.0f;
         Vector3 closestDistance = Vector3.zero;
-        Vector3 relativeDistance = Vector3.zero;
+        Vector3 relativeDistance;
+        /*
         foreach(GameObject target in targetSpawner.targetList)
         {
             Vector3 distanceToTarget = target.transform.position - this.transform.position;
@@ -41,6 +42,11 @@ public class PlayerAgent : Agent
                 targetTransform = target.transform;
             }
         }
+        */
+
+        Vector3 distanceToTarget = targetTransform.position - this.transform.position;
+        closestDistance = distanceToTarget;
+
         AddVectorObs(Mathf.Clamp(closestDistance.x / 5.0f, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(closestDistance.z / 5.0f, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(closestDistance.y / 5.0f, -1.0f, 1.0f));
