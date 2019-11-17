@@ -6,6 +6,7 @@ public class ItemSpawner : MonoBehaviour
 {
     public GameObject[] item = new GameObject[10];
     public List<GameObject> itemList = new List<GameObject>();
+    public Transform terrainTransform;
 
     public int SpawnMaxCount = 10;
     private float thresholdTime = 0;
@@ -26,8 +27,10 @@ public class ItemSpawner : MonoBehaviour
         {
             return;
         }
+
         int randomNum = Random.Range(0, 10);
-        Vector3 spawnPos = new Vector3(Random.Range(-10.0f, 40.0f), 6.0f, Random.Range(-20.0f, 30.0f));
+        Vector3 spawnPos = new Vector3(Random.Range(-50.0f, 10.0f), 14.0f, Random.Range(-35.0f, 25.0f)) + terrainTransform.position;
+        //Vector3 spawnPos = new Vector3(Random.Range(-20.0f, 40.0f), 6.0f, Random.Range(-30.0f, 30.0f));
         GameObject newItem = Instantiate(item[randomNum], spawnPos, Quaternion.identity);
         itemList.Add(newItem);
     }

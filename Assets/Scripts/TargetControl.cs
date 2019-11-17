@@ -5,6 +5,8 @@ using UnityEngine;
 public class TargetControl : MonoBehaviour
 {
     public enum PlayerState { Idle, Run, Sprint, Jump, Fall, Exhaust, Dive, Death }
+    public enum TargetState { Stand, Run }
+
     [SerializeField] private float hp = 100;
     [SerializeField] private float moveSpeed = 3;
     [SerializeField] private float turnSpeed = 200;
@@ -13,6 +15,8 @@ public class TargetControl : MonoBehaviour
     [SerializeField] private Rigidbody rigidBody;
 
     public PlayerState playerState;
+    public TargetState targetState;
+    private Vector3 firstPosition;
     private float currentV = 0;
     private float currentH = 0;
 
@@ -34,11 +38,15 @@ public class TargetControl : MonoBehaviour
     public float maximumHeight = 0f;
     public Vector3 moveAmount = Vector3.zero;
     private List<Collider> collisions = new List<Collider>();
-
+    void Start()
+    {
+        firstPosition = this.transform.position;
+        targetState = (Random.Range(0, 4) > 1) ? TargetState.Stand : TargetState.Run;
+    }
     void Update()
     {
         animator.SetBool("Grounded", isGrounded);
-        if (playerState != PlayerState.Death)
+        if (targetState == TargetState.Run && playerState != PlayerState.Death)
         {
             MoveUpdate();
         }
@@ -310,8 +318,7 @@ public class TargetControl : MonoBehaviour
                 maximumHeight = this.transform.position.y;
                 break;
             case PlayerState.Death:
-                //gameOverPanel.SetActive(true);
-                this.transform.position = new Vector3(42.5f, 6.0f, 32.5f);
+                this.transform.position = firstPosition;
                 this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
                 playerState = PlayerState.Fall;
                 break;

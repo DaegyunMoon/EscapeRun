@@ -22,6 +22,7 @@ public class PlayerControl : MonoBehaviour {
     private readonly float backwardRunScale = 0.75f;
     private readonly float backwardWalkScale = 0.5f;
 
+    private bool isSprint;
     private bool isGrounded;
     private bool wasGrounded;
     private bool isJumping;
@@ -31,11 +32,12 @@ public class PlayerControl : MonoBehaviour {
     private float minJumpInterval = 0.25f;
     private float heightBefore = 0.0f;
     private float maximumHeight = 0.0f;
+    private float sprintStart = 0.0f;
     public Vector3 moveAmount = Vector3.zero;
     private List<Collider> collisions = new List<Collider>();
 
     //UI
-    public Slider hpbar;
+    //public Slider hpbar;
     public GameObject gameOverPanel;
 
     void Update()
@@ -47,6 +49,11 @@ public class PlayerControl : MonoBehaviour {
         }
         CheckState();
         wasGrounded = isGrounded;
+    }
+
+    public float GetHP()
+    {
+        return hp;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -311,7 +318,7 @@ public class PlayerControl : MonoBehaviour {
                 break;
         }
 
-        hpbar.value = (Mathf.Round(hp) > 0.0f) ? Mathf.Round(hp) : 0.0f;
+        //hpbar.value = (Mathf.Round(hp) > 0.0f) ? Mathf.Round(hp) : 0.0f;
 
         if(hp > 100.0f)
         {
@@ -374,11 +381,23 @@ public class PlayerControl : MonoBehaviour {
                     return true;
             }
         }
-        bool sprint = s > 0.5f && playerState != PlayerState.Exhaust;
+        bool sprint = s > 0.25f && playerState != PlayerState.Exhaust;
         bool jump = j > 0.5f;
 
         v = GetDiscreteValue(v);
         h = GetDiscreteValue(h);
+
+        if (sprint && !isSprint)
+        {
+            sprintStart = Time.time;
+            isSprint = true;
+        }
+
+        if(!sprint && isSprint)
+        {
+            playerAgent.CheckSprint(sprintStart, Time.time);
+            isSprint = false;
+        }
 
         if (v < 0)
         {
@@ -427,7 +446,6 @@ public class PlayerControl : MonoBehaviour {
         transform.Rotate(0, currentH * turnSpeed * Time.deltaTime, 0);
 
         animator.SetFloat("MoveSpeed", currentV);
-
         Jump(jump);
     }
 
