@@ -275,6 +275,7 @@ public class PlayerControl : MonoBehaviour {
         {
             case PlayerState.Idle:
                 maximumHeight = this.transform.position.y;
+                
                 if(hp < 100.0f)
                 {
                     hp += 0.5f;

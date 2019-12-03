@@ -1314,7 +1314,6 @@ D:\capstone\EscapeRun\Temp\bin\Debug\com.unity.multiplayer-hlapi.Runtime.dll
 D:\capstone\EscapeRun\Temp\bin\Debug\com.unity.multiplayer-weaver.Editor.dll
 D:\capstone\EscapeRun\Temp\bin\Debug\Google.Protobuf.dll
 D:\capstone\EscapeRun\Temp\bin\Debug\Grpc.Core.dll
-D:\capstone\EscapeRun\Temp\bin\Debug\HOTween.dll
 D:\capstone\EscapeRun\Temp\bin\Debug\Microsoft.Win32.Primitives.dll
 D:\capstone\EscapeRun\Temp\bin\Debug\mscorlib.dll
 D:\capstone\EscapeRun\Temp\bin\Debug\netstandard.dll
@@ -1595,7 +1594,6 @@ D:\capstone\EscapeRun\Temp\bin\Debug\UnityEngine.XRModule.xml
 D:\capstone\EscapeRun\Temp\bin\Debug\UnityEngine.UI.xml
 D:\capstone\EscapeRun\Temp\bin\Debug\UnityEngine.TestRunner.xml
 D:\capstone\EscapeRun\Temp\bin\Debug\nunit.framework.xml
-D:\capstone\EscapeRun\Temp\bin\Debug\HOTween.xml
 D:\capstone\EscapeRun\Temp\bin\Debug\UnityEditor.UI.xml
 D:\capstone\EscapeRun\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 D:\capstone\EscapeRun\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
