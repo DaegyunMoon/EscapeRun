@@ -140,7 +140,8 @@ public class TargetControl : MonoBehaviour
     private void MoveUpdate()
     {
         float v = 1.0f;
-        float h = 0.0f;
+        float h = 0.2f;
+        /*
         if(Time.time > turnThreshold)
         {
             h = -0.1f;
@@ -155,6 +156,7 @@ public class TargetControl : MonoBehaviour
         {
             h = 0.0f;
         }
+        */
 
         bool sprint = Input.GetKey(KeyCode.LeftShift) && playerState != PlayerState.Exhaust;
         bool CanChangeState()
