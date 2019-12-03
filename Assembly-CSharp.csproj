@@ -180,6 +180,7 @@
     <Compile Include="Assets\ML-Agents\Scripts\UnityAgentsException.cs" />
     <Compile Include="Assets\ML-Agents\Scripts\Utilities.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ItemController.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
     <Compile Include="Assets\Scripts\LearningAcademy.cs" />

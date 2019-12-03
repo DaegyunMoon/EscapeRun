@@ -29,8 +29,8 @@ public class ItemSpawner : MonoBehaviour
         }
 
         int randomNum = Random.Range(0, 10);
-        Vector3 spawnPos = new Vector3(Random.Range(-50.0f, 10.0f), 14.0f, Random.Range(-35.0f, 25.0f)) + terrainTransform.position;
-        //Vector3 spawnPos = new Vector3(Random.Range(-20.0f, 40.0f), 6.0f, Random.Range(-30.0f, 30.0f));
+        //Vector3 spawnPos = new Vector3(Random.Range(-50.0f, 10.0f), 14.0f, Random.Range(-35.0f, 25.0f)) + terrainTransform.position;
+        Vector3 spawnPos = new Vector3(Random.Range(-55.0f, 55.0f), 6.0f, Random.Range(-55.0f, 55.0f));
         GameObject newItem = Instantiate(item[randomNum], spawnPos, Quaternion.identity);
         itemList.Add(newItem);
     }

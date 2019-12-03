@@ -27,7 +27,8 @@ public class TargetSpawner : MonoBehaviour
             return;
         }
 
-        Vector3 spawnPos = new Vector3(Random.Range(-50.0f, 10.0f), 14.0f, Random.Range(-35.0f, 25.0f)) + terrainTransform.position;
+        Vector3 spawnPos = new Vector3(Random.Range(-55.0f, 55.0f), 6.0f, Random.Range(-55.0f, 55.0f));
+        //Vector3 spawnPos = new Vector3(Random.Range(-50.0f, 10.0f), 14.0f, Random.Range(-35.0f, 25.0f)) + terrainTransform.position;
         GameObject newItem = Instantiate(targetObject, spawnPos, Quaternion.identity);
         targetList.Add(newItem);
     }

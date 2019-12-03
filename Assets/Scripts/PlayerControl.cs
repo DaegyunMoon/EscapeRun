@@ -37,8 +37,6 @@ public class PlayerControl : MonoBehaviour {
     private List<Collider> collisions = new List<Collider>();
 
     //UI
-    //public Slider hpbar;
-    public GameObject gameOverPanel;
 
     void Update()
     {
@@ -318,7 +316,6 @@ public class PlayerControl : MonoBehaviour {
                 break;
         }
 
-        //hpbar.value = (Mathf.Round(hp) > 0.0f) ? Mathf.Round(hp) : 0.0f;
 
         if(hp > 100.0f)
         {
