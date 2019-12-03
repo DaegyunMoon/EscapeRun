@@ -177,6 +177,7 @@
      <Compile Include="Assets\Scripts\ItemController.cs" />
      <Compile Include="Assets\Scripts\ItemSpawner.cs" />
      <Compile Include="Assets\Scripts\LearningAcademy.cs" />
+     <Compile Include="Assets\Scripts\menu.cs" />
      <Compile Include="Assets\Scripts\OutOfArea.cs" />
      <Compile Include="Assets\Scripts\PlayerAgent.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
