@@ -293,4 +293,4 @@ LearningBrain:
     lambd: 0.99
     buffer_size: 4096
     batch_size: 256
-    max_steps: 1.0e5
+    max_steps: 2.0e5

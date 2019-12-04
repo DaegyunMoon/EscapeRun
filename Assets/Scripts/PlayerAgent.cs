@@ -19,9 +19,9 @@ public class PlayerAgent : Agent
     public override void AgentReset()
     {
         this.transform.position = new Vector3(UnityEngine.Random.Range(-8.0f, 8.0f), 
-            6.0f, UnityEngine.Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
+            3.0f, UnityEngine.Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
         target.transform.position = new Vector3(UnityEngine.Random.Range(-8.0f, 8.0f),
-            6.0f, UnityEngine.Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
+            3.0f, UnityEngine.Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
         unitBody.velocity = Vector3.zero;
     }
     public override void CollectObservations()
@@ -48,10 +48,9 @@ public class PlayerAgent : Agent
         AddReward(-0.001f);
         float v = 1.0f;
         float h = vectorAction[0];
-        float s = 0.0f;
         float j = 0.0f;
 
-        player.Move(v, h, s, j);
+        player.Move(v, h, j);
 
         if (player.playerState == PlayerLearning.PlayerState.Death)
         {
@@ -67,41 +66,8 @@ public class PlayerAgent : Agent
         {
             Debug.Log("보상 : 타겟을 잡음");
             target.transform.position = new Vector3(UnityEngine.Random.Range(-8.0f, 8.0f), 
-                6.0f, UnityEngine.Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
+                3.0f, UnityEngine.Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
             AddReward(2.0f);
-        }
-        if (collision.gameObject.CompareTag("Item"))
-        {
-            Debug.Log("보상 : 아이템 획득");
-            AddReward(0.25f);
-            if (player.GetHP() < 50.0f)
-            {
-                Debug.Log("보상 : 피로도 회복");
-                AddReward(0.75f);
-            }
-        }
-    }
-
-    public void CheckSprint(float sprintStart, float sprintEnd)
-    {
-        float sprintTime = sprintEnd - sprintStart;
-        if (sprintTime > 2.0f)
-        {
-            if (player.GetHP() > 5.0f)
-            {
-                Debug.Log("보상 : Sprint");
-                AddReward(0.001f);
-            }
-            else
-            {
-                Debug.Log("보상 : 탈진 위험");
-                AddReward(-0.01f);
-            }
-        }
-        else
-        {
-            Debug.Log("보상 : 불필요한 Sprint");
-            AddReward(-1.0f);
         }
     }
 }

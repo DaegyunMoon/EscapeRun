@@ -30,6 +30,15 @@ public class SoundManager : MonoBehaviour
     // Use thias for initialization
     void Awake()
     {
+        if(!PlayerPrefs.HasKey("FxCheck"))
+        {
+            PlayerPrefs.SetFloat("FxCheck", 1);
+        }
+        if (!PlayerPrefs.HasKey("BgmCheck"))
+        {
+            PlayerPrefs.SetFloat("BgmCheck", 1);
+        }
+
         if (PlayerPrefs.GetFloat("FxCheck") == 0)
         {
             fxEnable = false;
@@ -66,7 +75,7 @@ public class SoundManager : MonoBehaviour
     {
 
     }
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip, Vector3 point)
     {
         if (clip && fxEnable)
         {

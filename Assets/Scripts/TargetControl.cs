@@ -31,8 +31,8 @@ public class TargetControl : MonoBehaviour
     private bool isRecovering;
 
     private float jumpThreshold = 0.0f;
-    private float turnThreshold = 0.0f;
-    private float turnTime = 0.0f;
+    //private float turnThreshold = 0.0f;
+    //private float turnTime = 0.0f;
     private float jumpTimeStamp = 0;
     private float minJumpInterval = 0.25f;
     public float maximumHeight = 0f;

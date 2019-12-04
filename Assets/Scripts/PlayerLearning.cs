@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLearning : MonoBehaviour
 {
-    public enum PlayerState { Idle, Run, Sprint, Jump, Fall, Exhaust, Dive, Death }
+    public enum PlayerState { Idle, Run, Jump, Fall, Exhaust, Dive, Death }
     [SerializeField] private float hp = 100;
     [SerializeField] private float moveSpeed = 3;
     [SerializeField] private float turnSpeed = 200;
@@ -19,9 +19,6 @@ public class PlayerLearning : MonoBehaviour
     private float currentH = 0;
 
     private readonly float interpolation = 10;
-    private readonly float runScale = 1.5f;
-    private readonly float backwardRunScale = 0.75f;
-    private readonly float backwardWalkScale = 0.5f;
 
     private bool isSprint;
     private bool isGrounded;
@@ -33,7 +30,6 @@ public class PlayerLearning : MonoBehaviour
     private float minJumpInterval = 0.25f;
     private float heightBefore = 0.0f;
     private float maximumHeight = 0.0f;
-    private float sprintStart = 0.0f;
     public Vector3 moveAmount = Vector3.zero;
     private List<Collider> collisions = new List<Collider>();
 
@@ -47,7 +43,6 @@ public class PlayerLearning : MonoBehaviour
     {
         animator.SetBool("Grounded", isGrounded);
         CheckState();
-        wasGrounded = isGrounded;
     }
     public float GetHP()
     {
@@ -150,7 +145,7 @@ public class PlayerLearning : MonoBehaviour
             }
         }
     }
-    public void Move(float v, float h, float s, float j)
+    public void Move(float v, float h, float j)
     {
         float GetDiscreteValue(float n)
         {
@@ -180,40 +175,11 @@ public class PlayerLearning : MonoBehaviour
                     return true;
             }
         }
-        bool sprint = s > 0.25f && playerState != PlayerState.Exhaust;
         bool jump = j > 0.5f;
 
         v = GetDiscreteValue(v);
         h = GetDiscreteValue(h);
 
-        if (sprint && !isSprint)
-        {
-            sprintStart = Time.time;
-            isSprint = true;
-        }
-
-        if (!sprint && isSprint)
-        {
-            playerAgent.CheckSprint(sprintStart, Time.time);
-            isSprint = false;
-        }
-
-        if (v < 0)
-        {
-            if (sprint)
-            {
-                v *= backwardRunScale;
-            }
-            else
-            {
-                v *= backwardWalkScale;
-            }
-        }
-        else if (sprint & Mathf.Abs(v) >= 0.1f)
-        {
-            v *= runScale;
-            hp -= 0.2f;
-        }
         if (playerState == PlayerState.Dive || playerState == PlayerState.Exhaust)
         {
             v *= 0.5f;
@@ -226,14 +192,7 @@ public class PlayerLearning : MonoBehaviour
             }
             else
             {
-                if (sprint)
-                {
-                    playerState = PlayerState.Sprint;
-                }
-                else
-                {
-                    playerState = PlayerState.Run;
-                }
+                playerState = PlayerState.Run;
             }
         }
 
@@ -246,6 +205,7 @@ public class PlayerLearning : MonoBehaviour
 
         animator.SetFloat("MoveSpeed", currentV);
         Jump(jump);
+        wasGrounded = isGrounded;
     }
 
     private void Jump(bool jump)
@@ -316,10 +276,6 @@ public class PlayerLearning : MonoBehaviour
                 maximumHeight = this.transform.position.y;
                 isJumping = false;
                 break;
-            case PlayerState.Sprint:
-                maximumHeight = this.transform.position.y;
-                isJumping = false;
-                break;
             case PlayerState.Jump:
                 isJumping = true;
                 if (maximumHeight <= this.transform.position.y)
@@ -342,7 +298,7 @@ public class PlayerLearning : MonoBehaviour
                 break;
             case PlayerState.Death:
                 //gameOverPanel.SetActive(true);
-                this.transform.position = new Vector3(Random.Range(-8.0f, 8.0f), 6.0f, Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
+                this.transform.position = new Vector3(Random.Range(-8.0f, 8.0f), 3.0f, Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
                 this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
                 playerState = PlayerState.Fall;
                 break;
