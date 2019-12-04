@@ -12,7 +12,6 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody rigidBody;
 
-    public PlayerAgent playerAgent;
     public PlayerState playerState;
     private float currentV = 0;
     private float currentH = 0;
@@ -22,7 +21,6 @@ public class PlayerControl : MonoBehaviour {
     private readonly float backwardRunScale = 0.75f;
     private readonly float backwardWalkScale = 0.5f;
 
-    private bool isSprint;
     private bool isGrounded;
     private bool wasGrounded;
     private bool isJumping;
@@ -30,9 +28,7 @@ public class PlayerControl : MonoBehaviour {
 
     private float jumpTimeStamp = 0.0f;
     private float minJumpInterval = 0.25f;
-    private float heightBefore = 0.0f;
     private float maximumHeight = 0.0f;
-    private float sprintStart = 0.0f;
     public Vector3 moveAmount = Vector3.zero;
     private List<Collider> collisions = new List<Collider>();
 
@@ -121,10 +117,6 @@ public class PlayerControl : MonoBehaviour {
         if(other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
         {
             playerState = PlayerState.Dive;
-            if(playerAgent)
-            {
-                playerAgent.AddReward(-0.1f);
-            }
         }
     }
     private void OnTriggerStay(Collider other)
@@ -132,10 +124,6 @@ public class PlayerControl : MonoBehaviour {
         if (other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
         {
             playerState = PlayerState.Dive;
-            if (playerAgent)
-            {
-                playerAgent.AddReward(-0.1f);
-            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -143,10 +131,6 @@ public class PlayerControl : MonoBehaviour {
         if (other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
         {
             playerState = PlayerState.Fall;
-            if (playerAgent)
-            {
-                playerAgent.AddReward(0.1f);
-            }
         }
     }
     private void MoveUpdate()
@@ -232,7 +216,6 @@ public class PlayerControl : MonoBehaviour {
             {
                 jumpForce = 12f;
             }
-            heightBefore = this.transform.position.y;
             jumpTimeStamp = Time.time;
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             playerState = PlayerState.Jump;
@@ -263,7 +246,6 @@ public class PlayerControl : MonoBehaviour {
             }
             else
             {
-                heightBefore = this.transform.position.y;
                 playerState = PlayerState.Fall;
             }
         }
@@ -317,7 +299,6 @@ public class PlayerControl : MonoBehaviour {
                 break;
         }
 
-
         if(hp > 100.0f)
         {
             hp = 100.0f;
@@ -345,157 +326,6 @@ public class PlayerControl : MonoBehaviour {
             hp = 0.1f;
             playerState = PlayerState.Idle;
             isRecovering = false;
-        }
-    }
-
-    // 강화학습 함수
-    public void Move(float v, float h, float s, float j)
-    {
-        float GetDiscreteValue(float n)
-        {
-            if(n > 0.1f)
-            {
-                n = 1.0f;
-            }
-            else if(n < -0.1f)
-            {
-                n = -1.0f;
-            }
-            else
-            {
-                n = 0.0f;
-            }
-            return n;
-        }
-        bool CanChangeState()
-        {
-            switch (playerState)
-            {
-                case PlayerState.Jump:
-                case PlayerState.Dive:
-                case PlayerState.Exhaust:
-                    return false;
-                default:
-                    return true;
-            }
-        }
-        bool sprint = s > 0.25f && playerState != PlayerState.Exhaust;
-        bool jump = j > 0.5f;
-
-        v = GetDiscreteValue(v);
-        h = GetDiscreteValue(h);
-
-        if (sprint && !isSprint)
-        {
-            sprintStart = Time.time;
-            isSprint = true;
-        }
-
-        if(!sprint && isSprint)
-        {
-            playerAgent.CheckSprint(sprintStart, Time.time);
-            isSprint = false;
-        }
-
-        if (v < 0)
-        {
-            if (sprint)
-            {
-                v *= backwardRunScale;
-            }
-            else
-            {
-                v *= backwardWalkScale;
-            }
-        }
-        else if (sprint & Mathf.Abs(v) >= 0.1f)
-        {
-            v *= runScale;
-            hp -= 0.2f;
-        }
-        if (playerState == PlayerState.Dive || playerState == PlayerState.Exhaust)
-        {
-            v *= 0.5f;
-        }
-        if (isGrounded && CanChangeState())
-        {
-            if (Mathf.Abs(v) < 0.1)
-            {
-                playerState = PlayerState.Idle;
-            }
-            else
-            {
-                if (sprint)
-                {
-                    playerState = PlayerState.Sprint;
-                }
-                else
-                {
-                    playerState = PlayerState.Run;
-                }
-            }
-        }
-
-        currentV = Mathf.Lerp(currentV, v, Time.deltaTime * interpolation);
-        currentH = Mathf.Lerp(currentH, h, Time.deltaTime * interpolation);
-
-        transform.position += transform.forward * currentV * moveSpeed * Time.deltaTime;
-        moveAmount = transform.forward * currentV * moveSpeed;
-        transform.Rotate(0, currentH * turnSpeed * Time.deltaTime, 0);
-
-        animator.SetFloat("MoveSpeed", currentV);
-        Jump(jump);
-    }
-
-    private void Jump(bool jump)
-    {
-        bool jumpCooldownOver = (Time.time - jumpTimeStamp) >= minJumpInterval;
-
-        if (jumpCooldownOver && isGrounded && jump)
-        {
-            if (playerState == PlayerState.Exhaust)
-            {
-                jumpForce = 6f;
-            }
-            else
-            {
-                jumpForce = 12f;
-            }
-            heightBefore = this.transform.position.y;
-            jumpTimeStamp = Time.time;
-            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            playerState = PlayerState.Jump;
-            isJumping = true;
-        }
-        if (!wasGrounded && isGrounded)
-        {
-            float fallAmount = maximumHeight - this.transform.position.y;
-            playerAgent.CheckOnLanding(fallAmount, heightBefore);
-            if (fallAmount > 6.0f || hp < 0.0f)
-            {
-                hp = -100;
-                playerState = PlayerState.Exhaust;
-                if (!isRecovering)
-                {
-                    Invoke("Recover", 10.0f);
-                    isRecovering = true;
-                }
-            }
-            animator.SetTrigger("Land");
-            maximumHeight = this.transform.position.y;
-        }
-        if (!isGrounded && wasGrounded)
-        {
-            animator.SetTrigger("Jump");
-            if (isJumping)
-            {
-                playerState = PlayerState.Jump;
-            }
-            else
-            {
-                heightBefore = this.transform.position.y;
-                playerState = PlayerState.Fall;
-            }
         }
     }
 

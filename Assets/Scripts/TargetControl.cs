@@ -41,7 +41,7 @@ public class TargetControl : MonoBehaviour
     void Start()
     {
         firstPosition = this.transform.position;
-        targetState = (Random.Range(0, 4) > 1) ? TargetState.Stand : TargetState.Run;
+        targetState = TargetState.Stand;
     }
     void Update()
     {

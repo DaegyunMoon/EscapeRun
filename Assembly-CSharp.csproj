@@ -188,6 +188,7 @@
     <Compile Include="Assets\Scripts\OutOfArea.cs" />
     <Compile Include="Assets\Scripts\PlayerAgent.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\PlayerLearning.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\TargetControl.cs" />
     <Compile Include="Assets\Scripts\TargetSpawner.cs" />
