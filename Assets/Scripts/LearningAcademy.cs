@@ -5,5 +5,8 @@ using MLAgents;
 
 public class LearningAcademy : Academy
 {
-
+    public override void AcademyReset()
+    {
+        Monitor.SetActive(true);
+    }
 }

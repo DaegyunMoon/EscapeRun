@@ -20,7 +20,6 @@ public class PlayerLearning : MonoBehaviour
 
     private readonly float interpolation = 10;
 
-    private bool isSprint;
     private bool isGrounded;
     private bool wasGrounded;
     private bool isJumping;
@@ -36,6 +35,8 @@ public class PlayerLearning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        heightBefore = this.transform.position.y;
+        wasGrounded = isGrounded;
     }
 
     // Update is called once per frame
@@ -231,7 +232,7 @@ public class PlayerLearning : MonoBehaviour
         if (!wasGrounded && isGrounded)
         {
             float fallAmount = maximumHeight - this.transform.position.y;
-            //playerAgent.CheckOnLanding(fallAmount, heightBefore);
+            playerAgent.CheckOnLanding(fallAmount, heightBefore);
             if (fallAmount > 6.0f || hp < 0.0f)
             {
                 hp = -100;
@@ -297,7 +298,6 @@ public class PlayerLearning : MonoBehaviour
                 maximumHeight = this.transform.position.y;
                 break;
             case PlayerState.Death:
-                //gameOverPanel.SetActive(true);
                 this.transform.position = new Vector3(Random.Range(-8.0f, 8.0f), 3.0f, Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
                 this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
                 playerState = PlayerState.Fall;
