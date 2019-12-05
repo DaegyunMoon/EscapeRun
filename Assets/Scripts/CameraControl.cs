@@ -9,29 +9,29 @@ public class CameraControl : MonoBehaviour
     public GameObject Target = null;
     private Transform targetTransform = null;
     public bool isForward = true;
-    /*
+    
     public enum CameraViewPointState { FIRST, SECOND, THIRD }
     public CameraViewPointState CameraState = CameraViewPointState.THIRD;
     public CameraViewPointState LastState;
-    */
+    
     [Header("3인칭 카메라")]
     public float Distance = 3.0f;
     public float Height = 1.0f;
     public float HeightDamping = 3.0f;
     public float RotateionDamping = 10.0f;
-    /*
+    
     [Header("2인칭 카메라")]
     public float RotateSpeed = 20.0f;
-
+    
     [Header("1인칭 카메라")]
     public float SensitivityX = 5.0f;
     public float SensitivityY = 5.0f;
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
     public Transform FirstCameraSocket = null;
-    */
+    
     // Use this for initialization
-	void Start ()
+    void Start ()
     {
         //LastState = CameraState;
         myTransform = GetComponent<Transform>();
@@ -50,7 +50,6 @@ public class CameraControl : MonoBehaviour
         {
             targetTransform = Target.transform;
         }
-        ThirdView();
     }
     void ThirdView()
     {
@@ -73,7 +72,7 @@ public class CameraControl : MonoBehaviour
 
         myTransform.LookAt(targetTransform);
     }
-    /*
+    
     /// <summary>
     /// 모델뷰
     /// </summary>
@@ -108,6 +107,7 @@ public class CameraControl : MonoBehaviour
         myTransform.localEulerAngles = new Vector3(-rotationY, rotationX, 0f);
         myTransform.position = FirstCameraSocket.position;
     }
+    /*
     private void Update()
     {
         if(FighterControl.stateNum == 6)
@@ -146,6 +146,7 @@ public class CameraControl : MonoBehaviour
             }
         }
     }
+    */
     /// <summary>
     /// update함수 후에 호출되는 업데이트.
     /// </summary>
@@ -172,5 +173,5 @@ public class CameraControl : MonoBehaviour
                 break;
         }
 	}
-    */
+    
 }
