@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private float jumpForce = 12;
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private AudioSource audioSource;
 
     public PlayerState playerState;
     private float currentV = 0;
@@ -208,7 +209,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (jumpCooldownOver && isGrounded && Input.GetKey(KeyCode.Space))
         {
-            if(playerState == PlayerState.Exhaust)
+            if (playerState == PlayerState.Exhaust)
             {
                 jumpForce = 6f;
             }
@@ -220,6 +221,7 @@ public class PlayerControl : MonoBehaviour {
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             playerState = PlayerState.Jump;
             isJumping = true;
+            SoundManager.instance.PlaySound(SoundManager.instance.jump, this.transform.position);
         }
         if (!wasGrounded && isGrounded)
         {
@@ -264,6 +266,7 @@ public class PlayerControl : MonoBehaviour {
                 }
                 break;
             case PlayerState.Run:
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.running, this.transform.position);
                 maximumHeight = this.transform.position.y;
                 isJumping = false;
                 break;
@@ -272,6 +275,7 @@ public class PlayerControl : MonoBehaviour {
                 isJumping = false;
                 break;
             case PlayerState.Jump:
+                SoundManager.instance.StopSound(audioSource);
                 isJumping = true;
                 if (maximumHeight <= this.transform.position.y)
                 {

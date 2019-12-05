@@ -16,20 +16,24 @@ public class SoundManager : MonoBehaviour
     public AudioSource bgmSource;
 
     [Header("InGame")]
-    public AudioClip Walking;
-    public AudioClip WalkingWater;
-    public AudioClip Running;
-    public AudioClip Jump;
-    public AudioClip Falling;
-    public AudioClip GetItem;
-    public AudioClip LevelUp;
-    public AudioClip PauseSound;
-    public AudioClip OverSound;
-    public AudioClip DeathVoice;
+    public AudioClip running;
+    public AudioClip sprinting;
+    public AudioClip walkingWater;
+    public AudioClip jump;
+    public AudioClip falling;
+    public AudioClip getItem;
+    public AudioClip levelUp;
+    public AudioClip pauseSound;
+    public AudioClip overSound;
+    public AudioClip deathVoice;
+
+    public static SoundManager instance;
 
     // Use thias for initialization
     void Awake()
     {
+        instance = FindObjectOfType<SoundManager>();
+
         if(!PlayerPrefs.HasKey("FxCheck"))
         {
             PlayerPrefs.SetFloat("FxCheck", 1);
@@ -79,16 +83,25 @@ public class SoundManager : MonoBehaviour
     {
         if (clip && fxEnable)
         {
-            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(clip, point);
         }
     }
-    public void PlaySound(AudioClip clip, float volume)
+    public void PlaySound(AudioSource audioSource, AudioClip clip, Vector3 point)
     {
         if (clip && fxEnable)
         {
-            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position, volume);
-            //Mathf.Clamp(this.fxVolume * volMultiplier, 0.05f, 1.0f);
+            audioSource.clip = clip;
+            audioSource.transform.position = point;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
+    }
+    public void StopSound(AudioSource audioSource)
+    {
+        audioSource.clip = null;
+        audioSource.Stop();
     }
     public void PlayBGM(AudioClip clip)
     {
