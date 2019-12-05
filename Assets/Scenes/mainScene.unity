@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -39698,17 +39698,20 @@ MonoBehaviour:
   soundOn: {fileID: 264355465}
   bgmOff: {fileID: 264355465}
   bgmOn: {fileID: 264355465}
-  bgmSource: {fileID: 0}
-  running: {fileID: 0}
-  sprinting: {fileID: 8300000, guid: e23839aacf45c6645a6536a3c5a813e9, type: 3}
-  walkingWater: {fileID: 0}
+  bgmSource: {fileID: 1824339482452515}
+  running: {fileID: 8300000, guid: a100c197cc0fb724897eb334f53b72ea, type: 3}
+  walking: {fileID: 8300000, guid: b5f214a7bb86d594da248dadff2449d1, type: 3}
+  walkingSlow: {fileID: 8300000, guid: 4d73e269afe589b45b72326078221582, type: 3}
+  walkingWater: {fileID: 8300000, guid: 3b9d8f2368f66ca4eae889f94f78f0fb, type: 3}
+  dive: {fileID: 8300000, guid: 105900c4c7b36ca4c83789b2ef9f0751, type: 3}
   jump: {fileID: 8300000, guid: a697535e9ddacf949a796d8309e86086, type: 3}
-  falling: {fileID: 0}
-  getItem: {fileID: 0}
-  levelUp: {fileID: 0}
-  pauseSound: {fileID: 0}
-  overSound: {fileID: 0}
-  deathVoice: {fileID: 0}
+  highfalling: {fileID: 8300000, guid: 54f1eb2bc0aa22d429b4ecefc11c73cb, type: 3}
+  landing: {fileID: 8300000, guid: 800de1cf3f7b8a24a93626a4a23468fd, type: 3}
+  getItem: {fileID: 8300000, guid: 29681a3833e5c0e40aba405bdb72d297, type: 3}
+  levelUp: {fileID: 8300000, guid: 2e47cbb566bc07e4d80a873d2acd8de2, type: 3}
+  pauseSound: {fileID: 8300000, guid: c3165b482db5c5c4eabdf39fb95dd4ee, type: 3}
+  overSound: {fileID: 8300000, guid: da75ac0816b4ecc4cb1cf3243d4f0101, type: 3}
+  deathVoice: {fileID: 8300000, guid: a24c924e764e33e4f83eb1bc53baf234, type: 3}
 --- !u!114 &1533989589
 MonoBehaviour:
   m_ObjectHideFlags: 0

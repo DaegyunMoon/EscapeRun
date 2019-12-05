@@ -17,10 +17,13 @@ public class SoundManager : MonoBehaviour
 
     [Header("InGame")]
     public AudioClip running;
-    public AudioClip sprinting;
+    public AudioClip walking;
+    public AudioClip walkingSlow;
     public AudioClip walkingWater;
+    public AudioClip dive;
     public AudioClip jump;
-    public AudioClip falling;
+    public AudioClip highfalling;
+    public AudioClip landing;
     public AudioClip getItem;
     public AudioClip levelUp;
     public AudioClip pauseSound;

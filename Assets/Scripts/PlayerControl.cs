@@ -60,7 +60,7 @@ public class PlayerControl : MonoBehaviour {
             {
                 if (!collisions.Contains(collision.collider) && !collision.gameObject.CompareTag("Item"))
                 {
-                        collisions.Add(collision.collider);
+                    collisions.Add(collision.collider);
                 }
                 isGrounded = true;
             }
@@ -115,14 +115,15 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
+        if(other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust && playerState != PlayerState.Dive)
         {
+            SoundManager.instance.PlaySound(SoundManager.instance.dive, this.transform.position);
             playerState = PlayerState.Dive;
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust)
+        if (other.gameObject.CompareTag("Water") && playerState != PlayerState.Exhaust && playerState != PlayerState.Dive)
         {
             playerState = PlayerState.Dive;
         }
@@ -169,9 +170,22 @@ public class PlayerControl : MonoBehaviour {
             v *= runScale;
             hp -= 0.2f;
         }
+
         if (playerState == PlayerState.Dive || playerState == PlayerState.Exhaust)
         {
             v *= 0.5f;
+            if (playerState == PlayerState.Dive && v != 0 && !isJumping)
+            {
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walkingWater, this.transform.position);
+            }
+            else if((playerState == PlayerState.Exhaust && v != 0 && !isJumping))
+            {
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walkingSlow, this.transform.position);
+            }
+            else
+            {
+                SoundManager.instance.StopSound(audioSource);
+            }
         }
         if (isGrounded && CanChangeState())
         {
@@ -226,21 +240,24 @@ public class PlayerControl : MonoBehaviour {
         if (!wasGrounded && isGrounded)
         {
             float fallAmount = maximumHeight - this.transform.position.y;
-            if(fallAmount > 6.0f || hp < 0.0f)
+            if (fallAmount > 6.0f || hp < 0.0f)
             {
                 hp = -100;
                 playerState = PlayerState.Exhaust;
                 if(!isRecovering)
                 {
+                    SoundManager.instance.PlaySound(SoundManager.instance.deathVoice, this.transform.position);
                     Invoke("Recover", 10.0f);
                     isRecovering = true;
                 }
             }
             animator.SetTrigger("Land");
             maximumHeight = this.transform.position.y;
+            SoundManager.instance.PlaySound(SoundManager.instance.landing, this.transform.position);
         }
         if (!isGrounded && wasGrounded)
         {
+            SoundManager.instance.StopSound(audioSource);
             animator.SetTrigger("Jump");
             if (isJumping)
             {
@@ -259,23 +276,21 @@ public class PlayerControl : MonoBehaviour {
         {
             case PlayerState.Idle:
                 maximumHeight = this.transform.position.y;
-                
+                SoundManager.instance.StopSound(audioSource);
                 if(hp < 100.0f)
                 {
                     hp += 0.5f;
                 }
                 break;
             case PlayerState.Run:
-                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.running, this.transform.position);
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walking, this.transform.position);
                 maximumHeight = this.transform.position.y;
-                isJumping = false;
                 break;
             case PlayerState.Sprint:
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.running, this.transform.position);
                 maximumHeight = this.transform.position.y;
-                isJumping = false;
                 break;
             case PlayerState.Jump:
-                SoundManager.instance.StopSound(audioSource);
                 isJumping = true;
                 if (maximumHeight <= this.transform.position.y)
                 {
@@ -288,6 +303,7 @@ public class PlayerControl : MonoBehaviour {
                 }
                 break;
             case PlayerState.Fall:
+                isJumping = false;
                 break;
             case PlayerState.Exhaust:
                 maximumHeight = this.transform.position.y;
@@ -335,6 +351,7 @@ public class PlayerControl : MonoBehaviour {
 
     public void FullHP()
     {
+        SoundManager.instance.PlaySound(SoundManager.instance.getItem, this.transform.position);
         hp = 100.0f;
         if(playerState == PlayerState.Exhaust)
         {
