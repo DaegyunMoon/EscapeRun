@@ -106,11 +106,10 @@ public class SoundManager : MonoBehaviour
         audioSource.clip = null;
         audioSource.Stop();
     }
-    public void PlayBGM(AudioClip clip)
+    public void PlayBGM()
     {
-        if (clip && bgmEnable)
+        if (bgmSource.clip)
         {
-            bgmSource.clip = clip;
             bgmSource.loop = true;
             bgmSource.volume = 0.8f;
             if (!bgmSource.isPlaying)
@@ -121,42 +120,32 @@ public class SoundManager : MonoBehaviour
     }
     public void StopBGM()
     {
-        if (bgmEnable)
-        {
-            if (bgmSource.isPlaying)
-            {
-                bgmSource.Stop();
-            }
-        }
+        bgmSource.Stop();
     }
-    public void ToggleFxCheck()
+    public void ToggleFxOn()
     {
-        if (fxEnable)
-        {
-            fxEnable = false;
-            PlayerPrefs.SetFloat("FxCheck", 0);
-            Debug.Log("FxCheck = 0");
-        }
-        else
-        {
-            fxEnable = true;
-            PlayerPrefs.SetFloat("FxCheck", 1);
-            Debug.Log("FxCheck = 1");
-        }
+        fxEnable = true;
+        PlayerPrefs.SetFloat("FxCheck", 1);
+        Debug.Log("FxCheck = 1");
     }
-    public void ToggleBGMCheck()
+    public void ToggleFxOff()
     {
-        if (bgmEnable)
-        {
-            bgmEnable = false;
-            PlayerPrefs.SetFloat("BgmCheck", 0);
-            Debug.Log("BgmCheck = 0");
-        }
-        else
-        {
-            bgmEnable = true;
-            PlayerPrefs.SetFloat("BgmCheck", 1);
-            Debug.Log("BgmCheck = 1");
-        }
+        fxEnable = false;
+        PlayerPrefs.SetFloat("FxCheck", 0);
+        Debug.Log("FxCheck = 0");
+    }
+    public void ToggleBGMOn()
+    {
+        bgmEnable = true;
+        PlayBGM();
+        PlayerPrefs.SetFloat("BgmCheck", 1);
+        Debug.Log("BgmCheck = 1");
+    }
+    public void ToggleBGMOff()
+    {
+        bgmEnable = false;
+        StopBGM();
+        PlayerPrefs.SetFloat("BgmCheck", 0);
+        Debug.Log("BgmCheck = 0");
     }
 }
