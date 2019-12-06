@@ -996,7 +996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e34c50e9afe0d4e886ed44059b9e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: mainScene
+  NextToLoad: mainScene
+  menus: []
 --- !u!4 &910776497
 Transform:
   m_ObjectHideFlags: 0
@@ -1788,7 +1789,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 910776496}
+      - m_Target: {fileID: 0}
         m_MethodName: isExit
         m_Mode: 1
         m_Arguments:

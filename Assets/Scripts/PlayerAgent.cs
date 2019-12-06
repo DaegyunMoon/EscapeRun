@@ -12,7 +12,6 @@ public class PlayerAgent : Agent
     public GameObject target;
     public GameObject obstacle;
 
-    // Start is called before the first frame update
     void Start()
     {
     }

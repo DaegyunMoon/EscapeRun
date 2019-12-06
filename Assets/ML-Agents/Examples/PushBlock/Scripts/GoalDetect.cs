@@ -5,7 +5,7 @@
 
 using UnityEngine;
 
-public class GoalDetect : MonoBehaviour
+public class Goal : MonoBehaviour
 {
     /// <summary>
     /// The associated agent.

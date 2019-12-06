@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
     public enum PlayerState { Idle, Run, Sprint, Jump, Fall, Exhaust, Dive, Death }
@@ -65,6 +66,11 @@ public class PlayerControl : MonoBehaviour {
                 isGrounded = true;
             }
         }
+        //감지한 충돌이 player일 경우 플레이어의 상태가 death로 바뀜
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerState = PlayerState.Death;
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -108,7 +114,6 @@ public class PlayerControl : MonoBehaviour {
         }
         if (collisions.Count == 0)
         {
-
             isGrounded = false;
         }
     }
@@ -312,7 +317,7 @@ public class PlayerControl : MonoBehaviour {
                 maximumHeight = this.transform.position.y;
                 break;
             case PlayerState.Death:
-                //gameOverPanel.SetActive(true);
+                SceneManager.LoadScene("gameOverScene");
                 this.transform.position = new Vector3(42.5f, 6.0f, 32.5f);
                 this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
                 playerState = PlayerState.Fall;
@@ -359,5 +364,6 @@ public class PlayerControl : MonoBehaviour {
             isRecovering = false;
         }
     }
+
 
 }

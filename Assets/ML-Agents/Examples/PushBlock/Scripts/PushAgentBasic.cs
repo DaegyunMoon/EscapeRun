@@ -35,7 +35,7 @@ public class PushAgentBasic : Agent
     /// Detects when the block touches the goal.
     /// </summary>
     [HideInInspector]
-    public GoalDetect goalDetect;
+    public Goal goalDetect;
 
     public bool useVectorObs;
 
@@ -60,7 +60,7 @@ public class PushAgentBasic : Agent
     public override void InitializeAgent()
     {
         base.InitializeAgent();
-        goalDetect = block.GetComponent<GoalDetect>();
+        goalDetect = block.GetComponent<Goal>();
         goalDetect.agent = this;
         m_RayPer = GetComponent<RayPerception>();
 

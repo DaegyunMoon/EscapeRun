@@ -828,3 +828,4 @@ C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\iOSBLAS.csproj.CoreCompileInputs.
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\iOSBLAS.csproj.CopyComplete
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\iOSBLAS.dll
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\iOSBLAS.pdb
+C:\Users\조슈니\Desktop\EscapeRun\Temp\bin\Debug\Boo.Lang.dll

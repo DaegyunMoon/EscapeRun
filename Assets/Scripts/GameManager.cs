@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Text uiText;
     public Slider hpbar;
     public GameObject gameOverPanel;
+    public string NextToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-
         int t = Mathf.FloorToInt(time);
         uiText.text = "Time: " + t;
+        PlayerPrefs.SetInt("MyScore", t);
+        if (!PlayerPrefs.HasKey("HighScore") || PlayerPrefs.GetInt("HighScore") < t)
+        {
+            PlayerPrefs.SetInt("HighScore", t);
+        }
+
         if (time >= thresholdTime)
         {
             SoundManager.instance.PlaySound(SoundManager.instance.levelUp, this.transform.position);
