@@ -7,7 +7,7 @@ public class TargetSpawner : MonoBehaviour
     public GameObject targetObject = null;
     public List<GameObject> targetList = new List<GameObject>();
     public Transform terrainTransform;
-    public int SpawnMaxCount = 1;
+    public int SpawnMaxCount = 5;
     private float thresholdTime = 0;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class TargetSpawner : MonoBehaviour
             return;
         }
 
-        Vector3 spawnPos = new Vector3(Random.Range(-8.0f, 8.0f), 6.0f, Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
+        Vector3 spawnPos = new Vector3(Random.Range(-55.0f, 55.0f), 5.0f, Random.Range(-55.0f, 55.0f)) + terrainTransform.position;
         GameObject newItem = Instantiate(targetObject, spawnPos, Quaternion.identity);
         targetList.Add(newItem);
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5099,7 +5099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 114018964159716892}
-  uiText: {fileID: 688634617}
+  timeText: {fileID: 688634617}
+  levelText: {fileID: 500161879841013394}
   hpbar: {fileID: 1286165459}
   gameOverPanel: {fileID: 633647155}
   NextToLoad: 
@@ -25989,6 +25990,7 @@ MonoBehaviour:
   unitBody: {fileID: 935581667}
   terrainTransform: {fileID: 0}
   target: {fileID: 1824339482452514}
+  obstacle: {fileID: 0}
 --- !u!114 &935581664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39621,6 +39623,7 @@ GameObject:
   - component: {fileID: 1533989589}
   - component: {fileID: 1533989588}
   - component: {fileID: 1533989590}
+  - component: {fileID: 1533989591}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -39831,6 +39834,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1533989591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533989584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66050d3da1a5d1141994348b32c0fb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 8640169464946911807, guid: 5c366dbbc7a823943a68306f487d26a6,
+    type: 3}
+  targetList: []
+  terrainTransform: {fileID: 1895824773}
+  SpawnMaxCount: 1
 --- !u!1 &1536517943
 GameObject:
   m_ObjectHideFlags: 0
@@ -57021,7 +57041,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1
 --- !u!222 &500161879841013395
 CanvasRenderer:
   m_ObjectHideFlags: 0
