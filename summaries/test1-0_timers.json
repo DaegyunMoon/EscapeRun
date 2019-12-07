@@ -3,75 +3,75 @@
   "gauges": [
     {
       "name": "LearningBrain.mean_reward",
-      "value": 42.53299776976928,
-      "min": -1.9250002733897418,
-      "max": 146.0329938022187,
-      "count": 154
+      "value": 18.473666236076195,
+      "min": -1.0232703203077402,
+      "max": 21.266110667131013,
+      "count": 200
     }
   ],
-  "total": 3499.4022991,
+  "total": 3575.8615375,
   "count": 1,
-  "self": 23.996507699957874,
+  "self": 31.834811400017315,
   "children": [
     {
       "name": "TrainerController.advance",
-      "total": 3475.4057914000423,
+      "total": 3544.0267260999826,
       "count": 200001,
-      "self": 378.1410734999913,
+      "self": 387.7983372999015,
       "children": [
         {
           "name": "env_step",
-          "total": 2600.2539183000536,
+          "total": 2648.571128900081,
           "count": 200001,
-          "self": 2388.1549696999045,
+          "self": 2419.1620099001825,
           "children": [
             {
               "name": "SubprocessEnvManager._take_step",
-              "total": 209.84826370013116,
+              "total": 227.0699715999896,
               "count": 200001,
-              "self": 4.087230100146627,
+              "self": 4.229624500016513,
               "children": [
                 {
                   "name": "PPOPolicy.evaluate",
-                  "total": 205.76103359998453,
+                  "total": 222.8403470999731,
                   "count": 200001,
-                  "self": 205.76103359998453
+                  "self": 222.8403470999731
                 }
               ]
             },
             {
               "name": "workers",
-              "total": 2.2506849000178173,
+              "total": 2.3391473999090735,
               "count": 200001,
               "self": 0.0,
               "children": [
                 {
                   "name": "worker_root",
-                  "total": 3488.5231272999813,
+                  "total": 3564.624598300106,
                   "count": 200001,
                   "is_parallel": true,
-                  "self": 1305.3395457999468,
+                  "self": 1356.3610151001453,
                   "children": [
                     {
                       "name": "UnityEnvironment.step",
-                      "total": 2183.1835815000345,
+                      "total": 2208.2635831999605,
                       "count": 200001,
                       "is_parallel": true,
-                      "self": 264.3543553000509,
+                      "self": 211.95485739985475,
                       "children": [
                         {
                           "name": "UnityEnvironment._generate_step_input",
-                          "total": 152.51321019999384,
+                          "total": 161.4618760000877,
                           "count": 200001,
                           "is_parallel": true,
-                          "self": 152.51321019999384
+                          "self": 161.4618760000877
                         },
                         {
                           "name": "communicator.exchange",
-                          "total": 1766.3160159999898,
+                          "total": 1834.8468498000182,
                           "count": 200001,
                           "is_parallel": true,
-                          "self": 1766.3160159999898
+                          "self": 1834.8468498000182
                         }
                       ]
                     }
@@ -83,15 +83,15 @@
         },
         {
           "name": "update_policy",
-          "total": 497.0107995999973,
+          "total": 507.6572599000001,
           "count": 765,
-          "self": 265.10692389997655,
+          "self": 272.701845399983,
           "children": [
             {
               "name": "PPOPolicy.update",
-              "total": 231.9038757000208,
-              "count": 36723,
-              "self": 231.9038757000208
+              "total": 234.95541450001713,
+              "count": 36720,
+              "self": 234.95541450001713
             }
           ]
         }

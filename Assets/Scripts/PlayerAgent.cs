@@ -29,15 +29,10 @@ public class PlayerAgent : Agent
     {
         Vector3 distanceToTarget = target.transform.position - this.transform.position;
         Vector3 relativePosition;
-        Vector3 distanceToObstacle = obstacle.transform.position - this.transform.position;
 
         AddVectorObs(Mathf.Clamp(distanceToTarget.normalized.x, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(distanceToTarget.normalized.z, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(distanceToTarget.normalized.y, -1.0f, 1.0f));
-
-        AddVectorObs(Mathf.Clamp(distanceToObstacle.normalized.x, -1.0f, 1.0f));
-        AddVectorObs(Mathf.Clamp(distanceToObstacle.normalized.z, -1.0f, 1.0f));
-        AddVectorObs(Mathf.Clamp(distanceToObstacle.normalized.y, -1.0f, 1.0f));
 
         relativePosition = terrainTransform.position - this.transform.position;
 
@@ -48,6 +43,8 @@ public class PlayerAgent : Agent
         AddVectorObs(Mathf.Clamp(player.moveAmount.normalized.x, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(player.moveAmount.normalized.z, -1.0f, 1.0f));
         AddVectorObs(Mathf.Clamp(unitBody.velocity.normalized.y, -1.0f, 1.0f));
+
+        AddVectorObs(player.GetIsGrounded());
     }
     public override void AgentAction(float[] vectorAction, string textAction)
     {
@@ -85,12 +82,18 @@ public void OnCollisionEnter(Collision collision)
         if (Math.Round(fallAmount, 2) == 1.77 && Math.Round(heightBefore, 2) == Math.Round(heightAfter, 2))
         {
             Debug.Log("보상 : 의미없는 점프");
-            AddReward(-1.0f);
+            SetReward(-1.0f);
+            Done();
         }
-        else if (heightDiffBefore > heightDiffAfter)
+        else if (Math.Round(heightDiffBefore, 2) > Math.Round(heightDiffAfter, 2))
         {
             Debug.Log("보상 : 타겟과 높이가 가까워짐");
-            AddReward(0.2f);
+            AddReward(0.5f);
+        }
+        else if(fallAmount > 6.0f)
+        {
+            Debug.Log("높은 곳에서 추락");
+            AddReward(-1.0f);
         }
     }
 }

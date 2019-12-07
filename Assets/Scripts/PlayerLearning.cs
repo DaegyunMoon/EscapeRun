@@ -49,7 +49,10 @@ public class PlayerLearning : MonoBehaviour
     {
         return hp;
     }
-
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         ContactPoint[] contactPoints = collision.contacts;
