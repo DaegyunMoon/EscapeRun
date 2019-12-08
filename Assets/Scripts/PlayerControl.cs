@@ -217,7 +217,6 @@ public class PlayerControl : MonoBehaviour {
         transform.position += transform.forward * currentV * moveSpeed * Time.deltaTime;
         moveAmount = transform.forward * currentV * moveSpeed;
         transform.Rotate(0, currentH * turnSpeed * Time.deltaTime, 0);
-
         animator.SetFloat("MoveSpeed", currentV);
 
         JumpingAndLanding();

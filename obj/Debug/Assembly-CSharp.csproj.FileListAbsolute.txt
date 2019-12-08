@@ -1600,7 +1600,6 @@ D:\capstone\EscapeRun\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 D:\capstone\EscapeRun\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\capstone\EscapeRun\obj\Debug\Assembly-CSharp.dll
 D:\capstone\EscapeRun\obj\Debug\Assembly-CSharp.pdb
-D:\capstone\EscapeRun\Temp\bin\Debug\Boo.Lang.dll
 C:\Users\조슈니\EscapeRun\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
 C:\Users\조슈니\EscapeRun\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\조슈니\EscapeRun\obj\Debug\Assembly-CSharp.dll
@@ -2191,3 +2190,4 @@ C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\Assembly-CSharp.csproj.CoreCompil
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\Assembly-CSharp.dll
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\Assembly-CSharp.pdb
+D:\capstone\EscapeRun\Temp\bin\Debug\Boo.Lang.dll

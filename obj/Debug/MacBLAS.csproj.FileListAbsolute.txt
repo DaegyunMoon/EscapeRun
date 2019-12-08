@@ -829,4 +829,3 @@ C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\MacBLAS.csproj.CopyComplete
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\MacBLAS.dll
 C:\Users\조슈니\Desktop\EscapeRun\obj\Debug\MacBLAS.pdb
 C:\Users\조슈니\Desktop\EscapeRun\Temp\bin\Debug\Boo.Lang.dll
-D:\capstone\EscapeRun\Temp\bin\Debug\Boo.Lang.dll

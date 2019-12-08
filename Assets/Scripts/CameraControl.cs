@@ -10,8 +10,8 @@ public class CameraControl : MonoBehaviour
     private Transform targetTransform = null;
     public bool isForward = true;
     
-    public enum CameraViewPointState { FIRST, SECOND, THIRD }
-    public CameraViewPointState CameraState = CameraViewPointState.THIRD;
+    public enum CameraViewPointState { SKYVIEW, SECOND, MAINVIEW }
+    public CameraViewPointState CameraState = CameraViewPointState.MAINVIEW;
     public CameraViewPointState LastState;
     
     [Header("3인칭 카메라")]
@@ -22,13 +22,6 @@ public class CameraControl : MonoBehaviour
     
     [Header("2인칭 카메라")]
     public float RotateSpeed = 20.0f;
-    
-    [Header("1인칭 카메라")]
-    public float SensitivityX = 5.0f;
-    public float SensitivityY = 5.0f;
-    private float rotationX = 0.0f;
-    private float rotationY = 0.0f;
-    public Transform FirstCameraSocket = null;
     
     // Use this for initialization
     void Start ()
@@ -78,12 +71,12 @@ public class CameraControl : MonoBehaviour
     /// </summary>
     void SecondView()
     {
-        if(LastState == CameraViewPointState.THIRD)
+        if(LastState == CameraViewPointState.MAINVIEW)
         {
             myTransform.RotateAround(targetTransform.position, Vector3.up, RotateSpeed * Time.deltaTime);
             myTransform.LookAt(targetTransform);
         }
-        if (LastState == CameraViewPointState.FIRST)
+        if (LastState == CameraViewPointState.SKYVIEW)
         {
             myTransform.RotateAround(targetTransform.position - new Vector3(-3, -3, -3), Vector3.up, RotateSpeed * Time.deltaTime);
             myTransform.LookAt(targetTransform);
@@ -92,61 +85,10 @@ public class CameraControl : MonoBehaviour
     /// <summary>
     /// 1인칭 뷰.
     /// </summary>
-    void FirstView()
+    void SkyView()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-
-        rotationX = myTransform.localEulerAngles.y + mouseX * SensitivityX;
-        //마이너스 각도를 조절하기 위한 연산.
-        rotationX = (rotationX > 180.0f) ? rotationX - 360.0f : rotationX;
-
-        rotationY = rotationY + mouseY * SensitivityY;
-        rotationY = (rotationY > 180.0f) ? rotationY - 360.0f : rotationY;
-        
-        myTransform.localEulerAngles = new Vector3(-rotationY, rotationX, 0f);
-        myTransform.position = FirstCameraSocket.position;
+        myTransform.position = targetTransform.position + new Vector3(0.0f, 15.0f, 0.0f);
     }
-    /*
-    private void Update()
-    {
-        if(FighterControl.stateNum == 6)
-        {
-            CameraState = CameraViewPointState.THIRD;
-        }
-        //게임오버 시 2인칭으로 변환
-        if(GameControl.instance.MyGameState == GameControl.GameState.Over)
-        {
-            CameraState = CameraViewPointState.SECOND;
-        }
-
-        //일시정지 기능
-        if (Input.GetKeyDown(KeyCode.K) && GameControl.instance.MyGameState != GameControl.GameState.Over)
-        {
-            if (CameraState == CameraViewPointState.SECOND)
-            {
-                CameraState = LastState;
-            }
-            else
-            {
-                LastState = CameraState;
-                CameraState = CameraViewPointState.SECOND;
-            }
-        }
-        //시점 변경
-        if (GameControl.instance.MyGameState == GameControl.GameState.Playing && Input.GetKeyDown(KeyCode.L))
-        {
-            if(CameraState == CameraViewPointState.THIRD)
-            {
-                CameraState = CameraViewPointState.FIRST;
-            }
-            else if(CameraState == CameraViewPointState.FIRST)
-            {
-                CameraState = CameraViewPointState.THIRD;
-            }
-        }
-    }
-    */
     /// <summary>
     /// update함수 후에 호출되는 업데이트.
     /// </summary>
@@ -162,14 +104,14 @@ public class CameraControl : MonoBehaviour
         }
         switch (CameraState)
         {
-            case CameraViewPointState.THIRD:
+            case CameraViewPointState.MAINVIEW:
                 ThirdView();
                 break;
             case CameraViewPointState.SECOND:
                 SecondView();
                 break;
-            case CameraViewPointState.FIRST:
-                FirstView();
+            case CameraViewPointState.SKYVIEW:
+                SkyView();
                 break;
         }
 	}
