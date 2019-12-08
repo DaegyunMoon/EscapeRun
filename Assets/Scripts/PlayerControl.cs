@@ -34,8 +34,6 @@ public class PlayerControl : MonoBehaviour {
     public Vector3 moveAmount = Vector3.zero;
     private List<Collider> collisions = new List<Collider>();
 
-    //UI
-
     void Update()
     {
         animator.SetBool("Grounded", isGrounded);
@@ -69,8 +67,7 @@ public class PlayerControl : MonoBehaviour {
                 isGrounded = true;
             }
         }
-        //감지한 충돌이 player일 경우 플레이어의 상태가 death로 바뀜
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Zombie"))
         {
             playerState = PlayerState.Death;
         }

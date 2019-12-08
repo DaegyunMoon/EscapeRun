@@ -65,7 +65,7 @@ public class ZombieAgent : Agent
         {
             Debug.Log("보상 : 사망");
             AddReward(-1.0f);
-            zombieSpawner.RemoveTarget(gameObject); ;
+            zombieSpawner.RemoveTarget(gameObject);
         }
         //Monitor.Log(name, GetCumulativeReward(), transform);
     }

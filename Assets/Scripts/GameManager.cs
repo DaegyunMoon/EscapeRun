@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public Text countdownText;
     public Text levelText;
     public Slider hpbar;
-    public GameObject gameOverPanel;
     public GameObject countDownPanel;
     public GameObject settingPanel;
     private ZombieSpawner zombieSpawner;

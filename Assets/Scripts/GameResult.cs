@@ -19,10 +19,7 @@ public class GameResult : MonoBehaviour
         if (PlayerPrefs.HasKey("HighScore"))
         {
             highScore = PlayerPrefs.GetInt("HighScore");
-            Debug.Log(highScore);
         }
-        else
-            highScore = 999;
     }
 
     void Update()

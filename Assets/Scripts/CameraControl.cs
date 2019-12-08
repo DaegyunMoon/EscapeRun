@@ -84,7 +84,7 @@ public class CameraControl : MonoBehaviour
     /// </summary>
     void SkyView()
     {
-        transform.position = targetTransform.position + new Vector3(0.0f, 20.0f, 0.0f);
+        transform.position = targetTransform.position + new Vector3(0.0f, 30.0f, 0.0f);
     }
     /// <summary>
     /// update함수 후에 호출되는 업데이트.
