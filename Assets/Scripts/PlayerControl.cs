@@ -181,11 +181,11 @@ public class PlayerControl : MonoBehaviour {
             v *= 0.5f;
             if (playerState == PlayerState.Dive && v != 0 && !isJumping)
             {
-                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walkingWater, this.transform.position);
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walkWater, this.transform.position);
             }
             else if((playerState == PlayerState.Exhaust && v != 0 && !isJumping))
             {
-                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walkingSlow, this.transform.position);
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walk, this.transform.position);
             }
             else
             {
@@ -250,14 +250,14 @@ public class PlayerControl : MonoBehaviour {
                 playerState = PlayerState.Exhaust;
                 if(!isRecovering)
                 {
-                    SoundManager.instance.PlaySound(SoundManager.instance.deathVoice, this.transform.position);
+                    SoundManager.instance.PlaySound(SoundManager.instance.hurt, this.transform.position);
                     Invoke("Recover", 10.0f);
                     isRecovering = true;
                 }
             }
             animator.SetTrigger("Land");
             maximumHeight = this.transform.position.y;
-            SoundManager.instance.PlaySound(SoundManager.instance.landing, this.transform.position);
+            SoundManager.instance.PlaySound(SoundManager.instance.land, this.transform.position);
         }
         if (!isGrounded && wasGrounded)
         {
@@ -287,11 +287,11 @@ public class PlayerControl : MonoBehaviour {
                 }
                 break;
             case PlayerState.Run:
-                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.walking, this.transform.position);
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.run, this.transform.position);
                 maximumHeight = this.transform.position.y;
                 break;
             case PlayerState.Sprint:
-                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.running, this.transform.position);
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.sprint, this.transform.position);
                 maximumHeight = this.transform.position.y;
                 break;
             case PlayerState.Jump:

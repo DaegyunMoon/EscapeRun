@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -211,8 +211,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 994318205}
-  - {fileID: 1792807827}
   - {fileID: 1951754514}
+  - {fileID: 1792807827}
   - {fileID: 651262674}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 651262676}
   - component: {fileID: 651262675}
   m_Layer: 5
-  m_Name: retry
+  m_Name: Retry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,7 +704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.9973145, y: -116}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &651262675
@@ -1088,18 +1088,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4132d09461547042bbddada0cba72f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  target: {fileID: 0}
   isForward: 1
-  CameraState: 1
-  LastState: 2
-  Distance: 8
-  Height: 3
-  HeightDamping: 3
-  RotateionDamping: 10
-  RotateSpeed: 20
-  SensitivityX: 5
-  SensitivityY: 5
-  FirstCameraSocket: {fileID: 0}
+  cameraState: 2
+  lastState: 0
+  distance: 3
+  height: 1
+  heightDamping: 3
+  rotateionDamping: 10
+  rotateSpeed: 20
 --- !u!1 &910776495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1108,7 @@ GameObject:
   - component: {fileID: 910776497}
   - component: {fileID: 910776496}
   m_Layer: 0
-  m_Name: gameoverManager
+  m_Name: GameOverManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,8 +1128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resultTime: {fileID: 1792807829}
   bestTime: {fileID: 1951754515}
-  resultUI: {fileID: 1792807826}
-  NextToLoad: startScene
 --- !u!4 &910776497
 Transform:
   m_ObjectHideFlags: 0
@@ -1160,7 +1155,7 @@ GameObject:
   - component: {fileID: 994318206}
   - component: {fileID: 994318208}
   m_Layer: 5
-  m_Name: gameresult
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,8 +1177,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 2.3300002, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 350, y: 100}
+  m_AnchoredPosition: {x: 0, y: 300}
+  m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994318206
 MonoBehaviour:
@@ -1206,19 +1201,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
-    m_MaxSize: 60
+    m_MinSize: 1
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Result
+  m_Text: GAME OVER
 --- !u!222 &994318207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1855,7 +1850,7 @@ GameObject:
   - component: {fileID: 1792807830}
   - component: {fileID: 1792807829}
   m_Layer: 5
-  m_Name: result time
+  m_Name: My Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1873,11 +1868,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 203122027}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 2.3300002, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792807829
@@ -1901,7 +1896,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -1913,7 +1908,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Result Time
+  m_Text: Your Score
 --- !u!222 &1792807830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2210,7 +2205,7 @@ GameObject:
   - component: {fileID: 1951754516}
   - component: {fileID: 1951754515}
   m_Layer: 5
-  m_Name: besttime
+  m_Name: Best Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2228,11 +2223,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 203122027}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 2.33, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1951754515
@@ -2256,7 +2251,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -2268,7 +2263,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Best Time
+  m_Text: Best Score
 --- !u!222 &1951754516
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2549,7 +2544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4643743302800739285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.49, y: 1.5, z: 16.29}
+  m_LocalPosition: {x: 31, y: 1, z: 16}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4639856873567936089}
@@ -7562,7 +7557,7 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &8640169465723211225
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7587,7 +7582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8640169465723211237}
   m_LocalRotation: {x: 0, y: -0.9848078, z: 0.17364816, w: 0}
-  m_LocalPosition: {x: 31.14, y: 1.5, z: 18.72}
+  m_LocalPosition: {x: 31, y: 1, z: 19}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8640169465111827566}

@@ -11,6 +11,7 @@ public class ZombieControl : MonoBehaviour
     [SerializeField] private float jumpForce = 12;
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private AudioSource audioSource;
 
     public Transform terrainTransform;
     public ZombieAgent playerAgent;
@@ -231,9 +232,11 @@ public class ZombieControl : MonoBehaviour
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             zombieState = ZombieState.Jump;
             isJumping = true;
+            SoundManager.instance.PlaySound(SoundManager.instance.zombieScream[Random.Range(0, 2)], this.transform.position);
         }
         if (!wasGrounded && isGrounded)
         {
+            SoundManager.instance.StopSound(audioSource);
             float fallAmount = maximumHeight - this.transform.position.y;
             playerAgent.CheckOnLanding(fallAmount, heightBefore);
             if (fallAmount > 6.0f || hp < 0.0f)
@@ -270,13 +273,14 @@ public class ZombieControl : MonoBehaviour
         {
             case ZombieState.Idle:
                 maximumHeight = this.transform.position.y;
-
+                SoundManager.instance.StopSound(audioSource);
                 if (hp < 100.0f)
                 {
                     hp += 0.5f;
                 }
                 break;
             case ZombieState.Run:
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.zombieWalk, this.transform.position);
                 maximumHeight = this.transform.position.y;
                 isJumping = false;
                 break;
@@ -295,6 +299,7 @@ public class ZombieControl : MonoBehaviour
             case ZombieState.Fall:
                 break;
             case ZombieState.Exhaust:
+                SoundManager.instance.PlaySound(audioSource, SoundManager.instance.zombieWalk, this.transform.position);
                 maximumHeight = this.transform.position.y;
                 break;
             case ZombieState.Dive:

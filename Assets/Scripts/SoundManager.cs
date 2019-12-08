@@ -15,20 +15,21 @@ public class SoundManager : MonoBehaviour
     public GameObject bgmOn;
     public AudioSource bgmSource;
 
-    [Header("InGame")]
-    public AudioClip running;
-    public AudioClip walking;
-    public AudioClip walkingSlow;
-    public AudioClip walkingWater;
+    [Header("Player")]
+    public AudioClip sprint;
+    public AudioClip run;
+    public AudioClip walk;
+    public AudioClip walkWater;
     public AudioClip dive;
     public AudioClip jump;
-    public AudioClip highfalling;
-    public AudioClip landing;
+    public AudioClip land;
     public AudioClip getItem;
+    public AudioClip hurt;
+    public AudioClip zombieWalk;
+    public AudioClip[] zombieScream = new AudioClip[3];
     public AudioClip levelUp;
     public AudioClip pauseSound;
     public AudioClip overSound;
-    public AudioClip deathVoice;
 
     public static SoundManager instance;
 

@@ -56,7 +56,7 @@ public class ZombieAgent : Agent
         float h = vectorAction[0];
         float j = vectorAction[1];
 
-        if (Math.Abs(this.transform.position.y - target.transform.position.y) < 5.0f)
+        if (Math.Abs(this.transform.position.y - target.transform.position.y) < 6.0f)
         {
             player.Move(v, h, j);
         }

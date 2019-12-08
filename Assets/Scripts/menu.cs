@@ -6,18 +6,11 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    private int selected;
     public string NextToLoad;
-    public Text[] menus;
 
-    private void Start()
-    {
-        selected = 0;
-    }
     private void Update()
     {
         SelectMenu();
-
     }
     void SelectMenu()
     {
@@ -28,7 +21,7 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(NextToLoad);
     }
-    public void isExit()
+    public void ExitProgram()
     {
         Application.Quit();
     }

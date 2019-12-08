@@ -25,8 +25,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    UnityEditor.TestRunner.dll:
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -38,7 +36,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/gameOverScene.unity:
@@ -198,19 +195,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10514}
     - Class: 114
-      Script: {instanceID: 10742}
+      Script: {instanceID: 10550}
     - Class: 114
-      Script: {instanceID: 11046}
+      Script: {instanceID: 10744}
     - Class: 114
-      Script: {instanceID: 11222}
+      Script: {instanceID: 10836}
     - Class: 114
-      Script: {instanceID: 27474}
+      Script: {instanceID: 11050}
     - Class: 114
-      Script: {instanceID: 144850}
+      Script: {instanceID: 11064}
     - Class: 114
-      Script: {instanceID: 144856}
+      Script: {instanceID: 11228}
     - Class: 114
-      Script: {instanceID: 144868}
+      Script: {instanceID: 22842}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -327,17 +324,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10518}
     - Class: 114
-      Script: {instanceID: 10618}
+      Script: {instanceID: 10550}
     - Class: 114
-      Script: {instanceID: 10742}
+      Script: {instanceID: 10620}
     - Class: 114
-      Script: {instanceID: 10978}
+      Script: {instanceID: 10744}
     - Class: 114
-      Script: {instanceID: 10992}
+      Script: {instanceID: 10836}
     - Class: 114
-      Script: {instanceID: 11004}
+      Script: {instanceID: 10982}
     - Class: 114
-      Script: {instanceID: 11100}
+      Script: {instanceID: 10996}
+    - Class: 114
+      Script: {instanceID: 11008}
+    - Class: 114
+      Script: {instanceID: 11106}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -371,7 +372,7 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
-      Hash: 31562b316a6ee3f2fdb77086daf3b01d
+      Hash: 0bc2a05efcc4b507b64cd86a3715e1a6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu
@@ -677,13 +678,25 @@ ScriptsOnlyBuild:
     className: NetworkTransform
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements
+    className: CallbackExecutor
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements.Editor
+    className: Placeholder
+  - hash:
+      serializedVersion: 2
       Hash: 9a082949a94f534ff9ac28fb8d44217e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GridAcademy
   - hash:
       serializedVersion: 2
-      Hash: 6ac97c5f55b52384fbf519a5722355dc
+      Hash: f4c72b736572d298c4722e32256f5a19
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundManager
@@ -953,7 +966,7 @@ ScriptsOnlyBuild:
     className: TransitionArmModel
   - hash:
       serializedVersion: 2
-      Hash: 599775d500ad51daf4a2ecf9c4c3e93b
+      Hash: 5bfc6cef1e2cdc180412a835b0d7c21d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameResult
@@ -1157,7 +1170,7 @@ ScriptsOnlyBuild:
     className: FlyCamera
   - hash:
       serializedVersion: 2
-      Hash: 3b9938b71c76e3ec0cb6c0ee484424df
+      Hash: b0d171331956dde6e44f94914d8771e6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1265,7 +1278,7 @@ ScriptsOnlyBuild:
     className: PlayerBrain
   - hash:
       serializedVersion: 2
-      Hash: 3151ce61de20c3d2dff7b624f2e33ee9
+      Hash: b6b116ddf04d1b79cfe88cb52537a4f0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraControl
@@ -1395,6 +1408,12 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkMigrationManager
+  - hash:
+      serializedVersion: 2
+      Hash: 38135389f182ab40ff38ccf3fdbcc6fd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ZombieAgent
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
@@ -1559,6 +1578,12 @@ ScriptsOnlyBuild:
     className: Demonstration
   - hash:
       serializedVersion: 2
+      Hash: 0dcaed165b55261ddfa513a7f115f610
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ZombieControl
+  - hash:
+      serializedVersion: 2
       Hash: f2a2baa50a2e50ed1b78530c56ef697e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1691,6 +1716,12 @@ ScriptsOnlyBuild:
     className: ItemController
   - hash:
       serializedVersion: 2
+      Hash: ea3d3a1c2441b6c3ccf240546a65e9d7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ZombieSpawner
+  - hash:
+      serializedVersion: 2
       Hash: 7395ca75c13702d3ee84365c0f5d0890
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1803,27 +1834,9 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 200d418681355c9eab2a2848ede652d2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ZombieControl
-  - hash:
-      serializedVersion: 2
-      Hash: 38135389f182ab40ff38ccf3fdbcc6fd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ZombieAgent
-  - hash:
-      serializedVersion: 2
-      Hash: ea3d3a1c2441b6c3ccf240546a65e9d7
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ZombieSpawner
   platform: 19
   scenePathNames:
   - Assets/Scenes/startScene.unity
   - Assets/Scenes/mainScene.unity
   - Assets/Scenes/gameOverScene.unity
-  playerPath: C:/Users/Daegyun/Desktop/EscapeRun/EscapeRun.exe
+  playerPath: C:/Users/Daegyun/Desktop/Files/Game/EscapeRun/EscapeRun.exe

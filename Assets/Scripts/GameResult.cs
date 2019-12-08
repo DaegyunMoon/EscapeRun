@@ -10,8 +10,6 @@ public class GameResult : MonoBehaviour
     private int highScore;
     public Text resultTime;
     public Text bestTime;
-    public GameObject resultUI;
-    public string NextToLoad;
 
     void Start()
     {
@@ -24,9 +22,8 @@ public class GameResult : MonoBehaviour
 
     void Update()
     {
-            resultUI.SetActive(true);
-            resultTime.text = "ResultTime : " + result;
-            bestTime.text = "BestTime : " + highScore;
+        bestTime.text = "Best Score : " + highScore;
+        resultTime.text = "Your Score : " + result;
     }
     public void Loadnext()
     {

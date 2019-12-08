@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public GameObject countDownPanel;
     public GameObject settingPanel;
     private ZombieSpawner zombieSpawner;
-    public string NextToLoad;
 
     public static GameManager instance;
 
@@ -39,13 +38,17 @@ public class GameManager : MonoBehaviour
         if (t < 0)
         {
             countDownPanel.SetActive(true);
-            timeText.text = "";
+            timeText.text = "Time : 0";
             countdownText.text = Mathf.Abs(t).ToString();
         }
         else
         {
             countDownPanel.SetActive(false);
-            timeText.text = "Time: " + t;
+            timeText.text = "Time : " + t;
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                settingPanel.SetActive(true);
+            }
         }
 
         PlayerPrefs.SetInt("MyScore", t);
@@ -64,10 +67,5 @@ public class GameManager : MonoBehaviour
         }
 
         hpbar.value = (Mathf.Round(player.GetHP()) > 0.0f) ? Mathf.Round(player.GetHP()) : 0.0f;
-
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            settingPanel.SetActive(true);
-        }
     }
 }
