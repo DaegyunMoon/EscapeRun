@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Slider hpbar;
     public GameObject gameOverPanel;
     public GameObject countDownPanel;
+    public GameObject settingPanel;
     private TargetSpawner targetSpawner;
     public string NextToLoad;
 
@@ -63,5 +64,10 @@ public class GameManager : MonoBehaviour
         }
 
         hpbar.value = (Mathf.Round(player.GetHP()) > 0.0f) ? Mathf.Round(player.GetHP()) : 0.0f;
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            settingPanel.SetActive(true);
+        }
     }
 }
