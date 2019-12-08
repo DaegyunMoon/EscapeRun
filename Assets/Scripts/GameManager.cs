@@ -8,21 +8,25 @@ public class GameManager : MonoBehaviour
 {
     private int level;
     private double thresholdTime = 15;
-    public static float time;
+    public float time;
     public PlayerControl player;
     public Text timeText;
+    public Text countdownText;
     public Text levelText;
     public Slider hpbar;
     public GameObject gameOverPanel;
+    public GameObject countDownPanel;
+    private TargetSpawner targetSpawner;
     public string NextToLoad;
 
-    private TargetSpawner targetSpawner;
+    public static GameManager instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = FindObjectOfType<GameManager>();
         targetSpawner = FindObjectOfType<TargetSpawner>();
-        time = 0;
+        time = -5;
         level = 1;
     }
 
@@ -31,13 +35,24 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         int t = Mathf.FloorToInt(time);
-        timeText.text = "Time: " + t;
+
+        if (t < 0)
+        {
+            timeText.text = "0";
+            countdownText.text = Mathf.Abs(t).ToString();
+        }
+        else
+        {
+            countDownPanel.SetActive(false);
+            timeText.text = "Time: " + t;
+        }
+
         PlayerPrefs.SetInt("MyScore", t);
         if (!PlayerPrefs.HasKey("HighScore") || PlayerPrefs.GetInt("HighScore") < t)
         {
             PlayerPrefs.SetInt("HighScore", t);
         }
-        
+
         if (time >= thresholdTime)
         {
             SoundManager.instance.PlaySound(SoundManager.instance.levelUp, player.transform.position);

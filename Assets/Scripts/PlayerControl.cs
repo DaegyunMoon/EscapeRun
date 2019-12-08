@@ -39,12 +39,15 @@ public class PlayerControl : MonoBehaviour {
     void Update()
     {
         animator.SetBool("Grounded", isGrounded);
-        if(playerState != PlayerState.Death)
+        if(GameManager.instance.time > 0)
         {
-            MoveUpdate();
+            if (playerState != PlayerState.Death)
+            {
+                MoveUpdate();
+            }
+            CheckState();
+            wasGrounded = isGrounded;
         }
-        CheckState();
-        wasGrounded = isGrounded;
     }
 
     public float GetHP()
