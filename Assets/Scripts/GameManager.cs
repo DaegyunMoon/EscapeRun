@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject countDownPanel;
     public GameObject settingPanel;
-    private TargetSpawner targetSpawner;
+    private ZombieSpawner zombieSpawner;
     public string NextToLoad;
 
     public static GameManager instance;
@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = FindObjectOfType<GameManager>();
-        targetSpawner = FindObjectOfType<TargetSpawner>();
-        time = -5;
+        zombieSpawner = FindObjectOfType<ZombieSpawner>();
+        time = -3;
         level = 1;
     }
 
@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
 
         if (t < 0)
         {
-            timeText.text = "0";
+            countDownPanel.SetActive(true);
+            timeText.text = "";
             countdownText.text = Mathf.Abs(t).ToString();
         }
         else
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
             level++;
             levelText.text = level.ToString();
             thresholdTime += 15;
-            targetSpawner.SpawnMaxCount += 5;
+            zombieSpawner.SpawnMaxCount += 5;
         }
 
         hpbar.value = (Mathf.Round(player.GetHP()) > 0.0f) ? Mathf.Round(player.GetHP()) : 0.0f;
