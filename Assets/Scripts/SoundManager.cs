@@ -76,7 +76,10 @@ public class SoundManager : MonoBehaviour
             bgmOn.SetActive(true);
         }
     }
-
+    void Start()
+    {
+        PlayBGM();
+    }
     // Update is called once per frame
     void Update()
     {

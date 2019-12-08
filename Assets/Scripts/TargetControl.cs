@@ -341,7 +341,7 @@ public class TargetControl : MonoBehaviour
             }
         }
 
-        if (this.transform.position.y < -15.0f)
+        if (this.transform.position.y < -25.0f)
         {
             playerState = PlayerState.Death;
         }

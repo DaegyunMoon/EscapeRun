@@ -318,9 +318,6 @@ public class PlayerControl : MonoBehaviour {
                 break;
             case PlayerState.Death:
                 SceneManager.LoadScene("gameOverScene");
-                this.transform.position = new Vector3(42.5f, 6.0f, 32.5f);
-                this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
-                playerState = PlayerState.Fall;
                 break;
         }
 
@@ -339,7 +336,7 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if(this.transform.position.y < -15.0f)
+        if(this.transform.position.y < -25.0f)
         {
             playerState = PlayerState.Death;
         }
