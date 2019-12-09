@@ -44,12 +44,10 @@ public class CameraControl : MonoBehaviour
     {
         float wantedRotationAngle = targetTransform.eulerAngles.y;
         float wantedHeight = targetTransform.position.y + height;
-
         float currentRotationAngle = transform.eulerAngles.y;
         float currentHeight = transform.position.y;
 
         currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotateionDamping * Time.deltaTime);
-
         currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
         Quaternion currentRotation = Quaternion.Euler(0f, currentRotationAngle, 0f);
@@ -75,6 +73,8 @@ public class CameraControl : MonoBehaviour
     }
     void SkyView()
     {
+        Quaternion currentRotation = Quaternion.Euler(90.0f, targetTransform.eulerAngles.y, 0f);
+        transform.rotation = currentRotation;
         transform.position = targetTransform.position + new Vector3(0.0f, 30.0f, 0.0f);
     }
     private void LateUpdate ()
