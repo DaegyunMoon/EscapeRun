@@ -42,15 +42,14 @@ public class CameraControl : MonoBehaviour
     }
     void DefaultView()
     {
-        float wantedRotationAngle = targetTransform.eulerAngles.y; //현재 타겟의 y축 각도 값.
-        float wantedHeight = targetTransform.position.y + height; //현재 타겟의 높이 + 우리가 추가로 높이고 싶은 높이.
+        float wantedRotationAngle = targetTransform.eulerAngles.y;
+        float wantedHeight = targetTransform.position.y + height;
 
-        float currentRotationAngle = transform.eulerAngles.y; //현재 카메라의 y축 각도 값.
-        float currentHeight = transform.position.y; //현재 카메라의 높이값.
-        //현재 각도에서 원하는 각도로 댐핑값을 얻게 됨.
+        float currentRotationAngle = transform.eulerAngles.y;
+        float currentHeight = transform.position.y;
+
         currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotateionDamping * Time.deltaTime);
 
-        //현재 높이에서 원하는 높이로 댐핑값을 얻습니다.
         currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
         Quaternion currentRotation = Quaternion.Euler(0f, currentRotationAngle, 0f);

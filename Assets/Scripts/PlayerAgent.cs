@@ -23,7 +23,8 @@ public class PlayerAgent : Agent
         target.transform.position = new Vector3(UnityEngine.Random.Range(-8.0f, 8.0f),
             3.0f, UnityEngine.Random.Range(-8.0f, 8.0f)) + terrainTransform.position;
         unitBody.velocity = Vector3.zero;
-        obstacle.transform.position = new Vector3(UnityEngine.Random.Range(-5.0f, 5.0f), 0.5f, UnityEngine.Random.Range(-5.0f, 5.0f)) + terrainTransform.position;
+        obstacle.transform.position = new Vector3(UnityEngine.Random.Range(-5.0f, 5.0f), 
+            0.5f, UnityEngine.Random.Range(-5.0f, 5.0f)) + terrainTransform.position;
     }
     public override void CollectObservations()
     {
@@ -83,7 +84,7 @@ public void OnCollisionEnter(Collision collision)
         {
             Debug.Log("보상 : 의미없는 점프");
             SetReward(-1.0f);
-            Done();
+            //Done();
         }
         else if (Math.Round(heightDiffBefore, 2) > Math.Round(heightDiffAfter, 2))
         {

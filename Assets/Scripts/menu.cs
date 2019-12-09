@@ -8,15 +8,6 @@ public class Menu : MonoBehaviour
 {
     public string NextToLoad;
 
-    private void Update()
-    {
-        SelectMenu();
-    }
-    void SelectMenu()
-    {
-        //if()
-        //엔터를 누르면 선택된 메뉴가 실행되는 함수를 작성
-    }
     public void Loadnext()
     {
         SceneManager.LoadScene(NextToLoad);
