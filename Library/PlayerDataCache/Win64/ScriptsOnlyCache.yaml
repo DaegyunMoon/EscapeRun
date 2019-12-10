@@ -25,6 +25,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    UnityEditor.TestRunner.dll:
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -36,6 +38,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/gameOverScene.unity:
@@ -205,9 +208,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11064}
     - Class: 114
-      Script: {instanceID: 11228}
+      Script: {instanceID: 11226}
     - Class: 114
-      Script: {instanceID: 22842}
+      Script: {instanceID: 54552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -338,7 +341,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11008}
     - Class: 114
-      Script: {instanceID: 11106}
+      Script: {instanceID: 11104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -678,25 +681,13 @@ ScriptsOnlyBuild:
     className: NetworkTransform
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.Advertisements.dll
-    namespaceName: UnityEngine.Advertisements
-    className: CallbackExecutor
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.Advertisements.dll
-    namespaceName: UnityEngine.Advertisements.Editor
-    className: Placeholder
-  - hash:
-      serializedVersion: 2
       Hash: 9a082949a94f534ff9ac28fb8d44217e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GridAcademy
   - hash:
       serializedVersion: 2
-      Hash: f4c72b736572d298c4722e32256f5a19
+      Hash: fd0d1ac450e1a874b82775b632d77084
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundManager
@@ -1720,12 +1711,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ZombieSpawner
-  - hash:
-      serializedVersion: 2
-      Hash: 7395ca75c13702d3ee84365c0f5d0890
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: OutOfArea
   - hash:
       serializedVersion: 2
       Hash: 24914ed562a14199c4407c402c41475c

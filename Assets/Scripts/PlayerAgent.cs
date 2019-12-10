@@ -6,6 +6,7 @@ using System;
 
 public class PlayerAgent : Agent
 {
+    Brain brain;
     public PlayerLearning player;
     public Rigidbody unitBody;
     public Transform terrainTransform;
@@ -84,7 +85,7 @@ public void OnCollisionEnter(Collision collision)
         {
             Debug.Log("보상 : 의미없는 점프");
             SetReward(-1.0f);
-            //Done();
+            Done();
         }
         else if (Math.Round(heightDiffBefore, 2) > Math.Round(heightDiffAfter, 2))
         {

@@ -18,6 +18,10 @@ public class ZombieSpawner : MonoBehaviour
             thresholdTime += 1.0f;
             Spawn();
         }
+        if (targetObject == null)
+        {
+            targetObject = targetList[0];
+        }
     }
 
     void Spawn()
