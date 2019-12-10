@@ -2,26 +2,20 @@
 <UserSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <User>
     <StdNum>60165081</StdNum>
-    <Name>mdg</Name>
-    <Score>0</Score>
+    <Name>문대균</Name>
+    <Score>10</Score>
     <Phone>01099754980</Phone>
   </User>
   <User>
-    <StdNum>60165077</StdNum>
-    <Name>kja</Name>
-    <Score>4</Score>
-    <Phone>01085258403</Phone>
+    <StdNum>60141234</StdNum>
+    <Name>박보건</Name>
+    <Score>54</Score>
+    <Phone>01012345678</Phone>
   </User>
   <User>
-    <StdNum>60175079</StdNum>
-    <Name>csy</Name>
-    <Score>72</Score>
-    <Phone>01047236921</Phone>
-  </User>
-  <User>
-    <StdNum>60164037</StdNum>
-    <Name>sdk</Name>
-    <Score>4</Score>
-    <Phone>6839480234</Phone>
+    <StdNum>60010708</StdNum>
+    <Name>박지섬</Name>
+    <Score>75</Score>
+    <Phone>01012345678</Phone>
   </User>
 </UserSet>

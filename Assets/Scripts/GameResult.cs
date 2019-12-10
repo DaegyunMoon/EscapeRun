@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Xml;
+using UnityEditor;
+using System.IO;
 
 public class GameResult : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class GameResult : MonoBehaviour
     {
         result = PlayerPrefs.GetInt("MyScore");
         myScore.text = "Your Score : " + result;
-        GetUserListFromXml("Users");
+        GetUserListFromXml("Users.xml");
         for (int i = 0; i < 10; i++)
         {
             if (i >= userList.Count) break;
@@ -33,13 +35,14 @@ public class GameResult : MonoBehaviour
     public void Loadnext()
     {
         SceneManager.LoadScene("startScene");
-    }  
+    }
 
     void GetUserListFromXml(string fileName)
     {
-        TextAsset textAsset = (TextAsset)Resources.Load(fileName);
+        StreamReader sr = new StreamReader("./Assets/Resources/" + fileName);
         XmlDocument xmlDocument = new XmlDocument();
-        xmlDocument.LoadXml(textAsset.text);
+        xmlDocument.LoadXml(sr.ReadToEnd());
+        sr.Close();
 
         XmlNodeList users = xmlDocument.SelectNodes("UserSet/User");
 
@@ -54,7 +57,8 @@ public class GameResult : MonoBehaviour
                 int.Parse(user.SelectSingleNode("Score").InnerText));
             userList.Add(item);
         }
-        xmlDocument.Save("./Assets/Resources/Users.xml");
+
+        xmlDocument.Save("./Assets/Resources/" + fileName);
 
         if (userList.Count > 1)
         {
