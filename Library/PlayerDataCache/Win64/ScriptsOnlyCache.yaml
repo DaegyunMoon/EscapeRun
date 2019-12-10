@@ -34,6 +34,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
@@ -204,13 +205,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10836}
     - Class: 114
-      Script: {instanceID: 11050}
+      Script: {instanceID: 11052}
     - Class: 114
-      Script: {instanceID: 11064}
+      Script: {instanceID: 11066}
     - Class: 114
-      Script: {instanceID: 11226}
-    - Class: 114
-      Script: {instanceID: 54552}
+      Script: {instanceID: 11228}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -305,6 +304,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9540}
     - Class: 114
+      Script: {instanceID: 9542}
+    - Class: 114
       Script: {instanceID: 9562}
     - Class: 114
       Script: {instanceID: 9576}
@@ -341,7 +342,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11008}
     - Class: 114
-      Script: {instanceID: 11104}
+      Script: {instanceID: 11106}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -375,7 +376,7 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
-      Hash: 0bc2a05efcc4b507b64cd86a3715e1a6
+      Hash: cbdc6ba184aea788e0f86bea2e46567b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu
@@ -957,7 +958,7 @@ ScriptsOnlyBuild:
     className: TransitionArmModel
   - hash:
       serializedVersion: 2
-      Hash: 5bfc6cef1e2cdc180412a835b0d7c21d
+      Hash: 06b269ae337aa582c415aed031d2b640
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameResult
@@ -1161,7 +1162,7 @@ ScriptsOnlyBuild:
     className: FlyCamera
   - hash:
       serializedVersion: 2
-      Hash: b0d171331956dde6e44f94914d8771e6
+      Hash: 032a49db1dfb3f861a036b1ad3a508ee
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1824,4 +1825,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/startScene.unity
   - Assets/Scenes/mainScene.unity
   - Assets/Scenes/gameOverScene.unity
-  playerPath: C:/Users/Daegyun/Desktop/Files/Game/EscapeRun/EscapeRun.exe
+  playerPath: "C:/Users/Daegyun/Desktop/Files/Game/\uC0C8 \uD3F4\uB354/EscapeRun.exe"
