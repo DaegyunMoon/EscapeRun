@@ -8,7 +8,7 @@ public class ItemSpawner : MonoBehaviour
     public List<GameObject> itemList = new List<GameObject>();
     public Transform terrainTransform;
 
-    public int SpawnMaxCount = 40;
+    public int SpawnMaxCount = 60;
     private float thresholdTime = 0;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class ItemSpawner : MonoBehaviour
     {
         if (GameManager.instance.time > thresholdTime)
         {
-            thresholdTime += 1.0f;
+            thresholdTime += 0.5f;
             Spawn();
         }
     }

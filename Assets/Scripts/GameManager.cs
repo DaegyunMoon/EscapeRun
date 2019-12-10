@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int level;
+    private int score;
+    private int acquiredItem;
     private double thresholdTime = 15;
     public float time;
     public PlayerControl player;
-    public Text timeText;
+    public Text scoreText;
     public Text countdownText;
     public Text levelText;
     public Slider hpbar;
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
         zombieSpawner = FindObjectOfType<ZombieSpawner>();
         time = -3;
         level = 1;
+        score = 0;
+        acquiredItem = 0;
     }
 
     // Update is called once per frame
@@ -38,23 +42,23 @@ public class GameManager : MonoBehaviour
         if (t < 0)
         {
             countDownPanel.SetActive(true);
-            timeText.text = "Time : 0";
+            scoreText.text = "Score : 0";
             countdownText.text = Mathf.Abs(t).ToString();
         }
         else
         {
             countDownPanel.SetActive(false);
-            timeText.text = "Time : " + t;
+            scoreText.text = "Score : " + (t + score);
             if (Input.GetKeyDown(KeyCode.F1))
             {
                 settingPanel.SetActive(true);
             }
         }
 
-        PlayerPrefs.SetInt("MyScore", t);
-        if (!PlayerPrefs.HasKey("HighScore") || PlayerPrefs.GetInt("HighScore") < t)
+        PlayerPrefs.SetInt("MyScore", (t + score));
+        if (!PlayerPrefs.HasKey("HighScore") || PlayerPrefs.GetInt("HighScore") < (t + score))
         {
-            PlayerPrefs.SetInt("HighScore", t);
+            PlayerPrefs.SetInt("HighScore", (t + score));
         }
 
         if (time >= thresholdTime)
@@ -67,5 +71,13 @@ public class GameManager : MonoBehaviour
         }
 
         hpbar.value = (Mathf.Round(player.GetHP()) > 0.0f) ? Mathf.Round(player.GetHP()) : 0.0f;
+    }
+
+    public void GetScore()
+    {
+        acquiredItem++;
+        float reward = 1.0f + (time + (acquiredItem * 10)) / 100.0f;
+        score += (int)(50.0f * reward);
+        Debug.Log((int)(50.0f * reward) + "점 획득");
     }
 }

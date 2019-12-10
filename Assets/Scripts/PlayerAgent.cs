@@ -6,7 +6,6 @@ using System;
 
 public class PlayerAgent : Agent
 {
-    Brain brain;
     public PlayerLearning player;
     public Rigidbody unitBody;
     public Transform terrainTransform;
@@ -83,7 +82,7 @@ public void OnCollisionEnter(Collision collision)
         float heightDiffAfter = Mathf.Abs(heightAfter - target.transform.position.y);
         if (Math.Round(fallAmount, 2) == 1.77 && Math.Round(heightBefore, 2) == Math.Round(heightAfter, 2))
         {
-            Debug.Log("보상 : 의미없는 점프");
+            Debug.Log("보상 : 불필요한 점프");
             SetReward(-1.0f);
             Done();
         }

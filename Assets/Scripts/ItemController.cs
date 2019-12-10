@@ -35,6 +35,7 @@ public class ItemController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            GameManager.instance.GetScore();
             player.FullHP();
             itemSpawner.RemoveItem(this.gameObject);
         }

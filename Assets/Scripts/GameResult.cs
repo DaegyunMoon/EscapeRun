@@ -10,6 +10,7 @@ public class GameResult : MonoBehaviour
     private int highScore;
     public Text resultTime;
     public Text bestTime;
+    
 
     void Start()
     {
