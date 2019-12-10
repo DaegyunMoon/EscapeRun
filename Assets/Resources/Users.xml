@@ -3,7 +3,7 @@
   <User>
     <StdNum>60165081</StdNum>
     <Name>문대균</Name>
-    <Score>10</Score>
+    <Score>16</Score>
     <Phone>01099754980</Phone>
   </User>
   <User>
@@ -17,5 +17,11 @@
     <Name>박지섬</Name>
     <Score>75</Score>
     <Phone>01012345678</Phone>
+  </User>
+  <User>
+    <StdNum>60150123</StdNum>
+    <Name>박산들</Name>
+    <Score>114</Score>
+    <Phone>01098765432</Phone>
   </User>
 </UserSet>

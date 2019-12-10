@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public enum GameState { Play, Pause }
 public class GameManager : MonoBehaviour
 {
     private int level;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     private int acquiredItem;
     private double thresholdTime = 15;
     public float time;
+    public GameState gameState;
     public PlayerControl player;
     public Text scoreText;
     public Text countdownText;
@@ -36,7 +38,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        if(gameState != GameState.Pause)
+        {
+            time += Time.deltaTime;
+        }
         int t = Mathf.FloorToInt(time);
 
         if (t < 0)
@@ -51,26 +56,21 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score : " + (t + score);
             if (Input.GetKeyDown(KeyCode.F1))
             {
+                gameState = GameState.Pause;
                 settingPanel.SetActive(true);
             }
         }
 
         PlayerPrefs.SetInt("MyScore", (t + score));
-        if (!PlayerPrefs.HasKey("HighScore") || PlayerPrefs.GetInt("HighScore") < (t + score))
-        {
-            PlayerPrefs.SetInt("HighScore", (t + score));
-        }
 
         if (time >= thresholdTime)
         {
-            SoundManager.instance.PlaySound(SoundManager.instance.levelUp, player.transform.position);
-            level++;
-            levelText.text = level.ToString();
-            thresholdTime += 15;
-            zombieSpawner.SpawnMaxCount += 5;
+            LevelUp();
         }
 
         hpbar.value = (Mathf.Round(player.GetHP()) > 0.0f) ? Mathf.Round(player.GetHP()) : 0.0f;
+
+        CheckState();
     }
 
     public void GetScore()
@@ -79,5 +79,32 @@ public class GameManager : MonoBehaviour
         float reward = 1.0f + (time + (acquiredItem * 10)) / 100.0f;
         score += (int)(50.0f * reward);
         Debug.Log((int)(50.0f * reward) + "점 획득");
+    }
+
+    public void LevelUp()
+    {
+        SoundManager.instance.PlaySound(SoundManager.instance.levelUp, player.transform.position);
+        level++;
+        levelText.text = level.ToString();
+        thresholdTime += 15;
+        zombieSpawner.SpawnMaxCount += 5;
+    }
+
+    public void Resume()
+    {
+        gameState = GameState.Play;
+    }
+
+    public void CheckState()
+    {
+        switch (gameState)
+        {
+            case GameState.Play:
+                Time.timeScale = 1.0f;
+                break;
+            case GameState.Pause:
+                Time.timeScale = 0.0f;
+                break;
+        }
     }
 }

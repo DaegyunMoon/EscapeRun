@@ -1162,7 +1162,7 @@ ScriptsOnlyBuild:
     className: FlyCamera
   - hash:
       serializedVersion: 2
-      Hash: 032a49db1dfb3f861a036b1ad3a508ee
+      Hash: 85824a064226369dfa137cff97da322f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
