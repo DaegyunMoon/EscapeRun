@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     public void GetScore()
     {
         acquiredItem++;
-        float reward = 1.0f + (time + (acquiredItem * 10)) / 100.0f;
+        float reward = 1.0f + ((time / 2) + (acquiredItem * 10)) / 100.0f;
         score += (int)(50.0f * reward);
         Debug.Log((int)(50.0f * reward) + "점 획득");
     }

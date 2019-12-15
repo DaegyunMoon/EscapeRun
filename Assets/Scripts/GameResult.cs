@@ -48,7 +48,7 @@ public class GameResult : MonoBehaviour
 
         foreach(XmlNode user in users)
         {
-            if (user.SelectSingleNode("Name").InnerText == PlayerPrefs.GetString("MyName"))
+            if (user == users[users.Count - 1])
             {
                 user.SelectSingleNode("Score").InnerText = PlayerPrefs.GetInt("MyScore").ToString();
             }

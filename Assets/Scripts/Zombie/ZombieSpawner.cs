@@ -37,9 +37,19 @@ public class ZombieSpawner : MonoBehaviour
 
     Vector3 GetSpawnPos()
     {
-        float posX = Random.Range(-55.0f, 55.0f);
-        float posZ = Random.Range(-55.0f, 55.0f);
-        float posY;
+        float posX, posY, posZ;
+
+        if(targetList.Count <= 2)
+        {
+            posX = Random.Range(0.0f, 55.0f);
+            posZ = Random.Range(0.0f, 55.0f);
+        }
+        else
+        {
+            posX = Random.Range(-55.0f, 55.0f);
+            posZ = Random.Range(-55.0f, 55.0f);
+        }
+
         if (posX > 0.0f && posZ > 0.0f)
         {
             posY = 5.0f;

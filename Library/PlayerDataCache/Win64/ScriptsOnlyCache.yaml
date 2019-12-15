@@ -1825,4 +1825,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/startScene.unity
   - Assets/Scenes/mainScene.unity
   - Assets/Scenes/gameOverScene.unity
-  playerPath: C:/Users/Daegyun/Desktop/Files/Game/EscapeRun/EscapeRun.exe
+  playerPath: C:/Users/Daegyun/Desktop/Files/Game/Escape_Run/EscapeRun.exe
